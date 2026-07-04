@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISLAM AND CO - Booker Login </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1e40af">
+    <title>ISLAM AND CO-Booker app</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
@@ -20,19 +23,20 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--excel-font); }
-        body { background: var(--bg-workspace); color: var(--text-main); user-select: none; }
+        body { background: var(--bg-workspace); color: var(--text-main); user-select: none; -webkit-user-select: none; }
 
         .announcement-banner-strip { background: #0f172a; color: #fef08a; padding: 4px 14px; font-weight: 700; font-size: 11px; display: flex; align-items: center; border-bottom: 1px solid #e2e8f0; height: 28px; }
-        .app-fluid-canvas { width: 100%; max-width: 1100px; margin: 0 auto; padding: 10px; padding-bottom: 60px; }
+        .app-fluid-canvas { width: 100%; max-width: 1100px; margin: 0 auto; padding: 10px; padding-bottom: 80px; }
         .screen-view-panel { display: none; }
         .screen-view-panel.view-active { display: block; }
 
-        .secure-auth-card { max-width: 420px; margin: 80px auto 20px auto; background: var(--surface-clean); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-elegant); overflow: hidden; }
+        .secure-auth-card { max-width: 420px; margin: 60px auto 20px auto; background: var(--surface-clean); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-elegant); overflow: hidden; position: relative; }
         .auth-brand-header { background: var(--brand-blue); padding: 25px; text-align: center; color: white; }
         .auth-brand-header h1 { font-size: 28px; font-weight: 900; letter-spacing: 0.5px; }
         .auth-brand-header p { font-size: 11px; color: #93c5fd; margin-top: 4px; text-transform: uppercase; font-weight: 700; }
         .auth-card-body { padding: 25px; }
-      .session-runtime-dashboard-strip { background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; font-weight: 700; border-radius: 4px; margin-bottom: 4px !important; }
+
+        .session-runtime-dashboard-strip { background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; font-weight: 700; border-radius: 4px; margin-bottom: 4px !important; }
         .logout-action-btn { background: #ef4444; color: white; border: none; padding: 3px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; font-weight: 700; }
         .app-main-title-theme-banner { background: var(--brand-blue); color: white; text-align: center; padding: 10px; border-radius: 4px; margin-bottom: 10px !important; }
         .app-main-title-theme-banner h2 { font-size: 28px; font-weight: 900; letter-spacing: 0.5px; }
@@ -46,13 +50,12 @@
         .grid-inline-row-panel { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 8px; align-items: flex-end; width: 100%; margin-bottom: 12px; }
         .node-block-wrapper { display: flex; flex-direction: column; }
         .field-label-node { display: block; font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 4px; text-transform: uppercase; white-space: nowrap; }
-        
         .input-control-node { width: 100%; padding: 6px 10px; border: 1px solid var(--border-elegant); border-radius: 4px; font-size: 13px; font-weight: 600; color: #0f172a; background: var(--input-soft-bg); height: 35px; outline: none; }
         .input-control-node:focus { border-color: var(--brand-accent); background: #ffffff; }
         .input-control-node[readonly] { background: #e2e8f0; color: #1e293b; font-weight: 700; }
-      .password-input-wrapper { position: relative; width: 100%; }
-        .password-toggle-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; user-select: none; font-size: 16px; color: #64748b; z-index: 5; }
 
+        .password-input-wrapper { position: relative; width: 100%; }
+        .password-toggle-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; user-select: none; font-size: 16px; color: #64748b; z-index: 5; }
         .btn-compact-search-action { background: var(--brand-blue); color: white; border: none; padding: 0 20px; height: 35px; font-size: 11.5px; font-weight: 700; border-radius: 4px; cursor: pointer; flex-shrink: 0; }
         .customer-data-grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
 
@@ -60,24 +63,25 @@
         .app-data-grid-table { width: 100%; border-collapse: collapse; }
         .app-data-grid-table th { background: #f1f5f9; color: #475569; font-size: 10.5px; font-weight: 800; text-transform: uppercase; padding: 5px 8px; text-align: left; border-bottom: 2px solid var(--border-elegant); position: sticky; top: 0; z-index: 10; }
         .app-data-grid-table td { padding: 4px 8px; font-size: 11.5px; color: var(--text-main); border-bottom: 1px solid var(--border-elegant); background: #ffffff; font-weight: 600; }
-        
         .product-name-single-line-clamp { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 320px; font-size: 12px; font-weight: 700; color: #0f172a; }
+
         .floating-modal-system-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 15px; }
         .floating-modal-viewport-card { background: var(--surface-clean); width: 100%; max-width: 500px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-elegant); }
-
         .floating-modal-header { background: var(--brand-blue); color: white; padding: 10px 15px; font-size: 13px; font-weight: 800; text-align: center; text-transform: uppercase; }
         .floating-modal-body { padding: 15px; }
         .quantity-stepper-wrapper { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 15px 0; }
         .quantity-stepper-btn { width: 38px; height: 38px; background: #e2e8f0; border: none; font-size: 20px; font-weight: 800; border-radius: 4px; cursor: pointer; color: var(--brand-blue); }
         .quantity-stepper-input { width: 70px; text-align: center; font-size: 18px; font-weight: 800; height: 38px; border: 1px solid var(--border-elegant); border-radius: 4px; }
         .btn-ui-action { background: var(--brand-blue); color: white; border: none; padding: 0 14px; height: 35px; font-size: 12px; font-weight: 700; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
-      .excel-invoice-blueprint-viewport { background: #ffffff !important; color: #000000 !important; width: 100%; max-width: 600px; padding: 15px; margin: 0 auto; border: 1px solid #000000 !important; line-height: 1.2; box-sizing: border-box; overflow: hidden; }
+
+        /* Proper Case Live Bill Engine Layout Specifications */
+        .excel-invoice-blueprint-viewport { background: #ffffff !important; color: #000000 !important; width: 100%; max-width: 600px; padding: 15px; margin: 0 auto; border: 1px solid #000000 !important; line-height: 1.2; box-sizing: border-box; overflow: hidden; }
         .excel-invoice-blueprint-viewport * { font-family: var(--excel-font) !important; color: #000000 !important; box-sizing: border-box; }
         .blueprint-txt-9x { font-size: 9px !important; color: #000000 !important; }
         .blueprint-txt-12x { font-size: 12px !important; color: #000000 !important; }
         
         .bill-data-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 9px !important; table-layout: fixed; border: none !important; }
-        .bill-data-table th { font-weight: bold !important; text-align: left; padding: 3px 2px; border: none !important; border-bottom: 0.5px solid #000000 !important; color: #000000 !important; }
+        .bill-data-table th { font-weight: bold !important; text-align: left; padding: 3px 2px; border: none !important; border-bottom: 0.5px solid #000000 !important; color: #000000 !important; text-transform: uppercase !important; }
         .bill-data-table td { padding: 3px 2px; border: none !important; border-bottom: 0.5px solid #000000 !important; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; vertical-align: middle !important; color: #000000 !important; }
         
         .bill-totals-alignment-block { display: flex; flex-direction: column; align-items: flex-end; width: 100%; margin-top: 3px; font-size: 9px !important; gap: 1px; }
@@ -85,11 +89,10 @@
         .bill-grand-value-container { border: 0.5px solid #000000; padding: 2px 4px; font-weight: bold; margin-top: 1px; font-size: 9px !important; display: inline-block; min-width: 55px; text-align: right; margin-left: 2px; color: #000000 !important; }
         .bill-normal-value-container { padding: 0px 4px; font-weight: normal; font-size: 9px !important; display: inline-block; min-width: 55px; text-align: right; margin-left: 2px; color: #000000 !important; }
         
-        .bill-horizontal-logistics-strip { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; width: 100%; font-size: 8px !important; gap: 5px; border: none !important; margin-top: 8px; padding-top: 0px; color: #000000 !important; }
+        .bill-horizontal-logistics-strip { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; width: 100%; font-size: 8px !important; gap: 5px; border: none !important; margin-top: 8px; padding-top: 0px; color: #000000 !important; text-transform: uppercase !important; }
         .bill-horizontal-logistics-strip > div { display: flex; flex-direction: column; min-width: 0; word-wrap: break-word; color: #000000 !important; }
-
         .info-data-stack { display: flex; flex-direction: column; margin-bottom: 3px; width: 100%; color: #000000 !important; }
-        .info-data-stack strong { font-weight: bold !important; font-size: 9px !important; text-transform: uppercase; color: #000000 !important; }
+        .info-data-stack strong { font-weight: bold !important; font-size: 9px !important; color: #000000 !important; }
         .info-data-stack span { font-weight: normal !important; font-size: 9.5px !important; display: block; color: #000000 !important; }
 
         .history-tabs-container { display: flex; gap: 5px; margin-bottom: 10px; }
@@ -98,11 +101,16 @@
         .history-content-panel { display: none; margin-top: 10px; }
         .history-content-panel.active-panel { display: block; }
         .secret-toggle-btn { cursor: pointer; user-select: none; }
+        
+        /* Countdown Box UI styling near Footer */
+        .countdown-security-footer-box { background: #fee2e2; border: 1px solid #fca5a5; border-radius: 6px; padding: 10px; text-align: center; margin-top: 15px; color: #991b1b; font-weight: 800; font-size: 13px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .shujaat-footer-branding { text-align: center; padding: 10px 0 20px 0; font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px; width: 100%; }
     </style>
 </head>
 <body>
-  <div class="announcement-banner-strip" id="globalMarqueeStripContainer" style="display:none;">
-    <marquee id="globalPromoMarqueeString" scrollamount="4">System channels live routing...</marquee>
+  <div class="announcement-banner-strip" id="globalMarqueeStripContainer">
+    <span style="color:#fca5a5; font-weight:900; padding-right:5px; text-transform:uppercase; white-space:nowrap;">📢 ANNOUNCEMENT:</span>
+    <marquee id="globalPromoMarqueeString" scrollamount="4">SYSTEM CHANNELS OPERATIONAL. SECURE DATA MATRIX SYNC LIVE ROUTING ACTIVE...</marquee>
 </div>
 
 <div class="app-fluid-canvas">
@@ -110,12 +118,12 @@
         <div class="secure-auth-card">
             <div class="auth-brand-header">
                 <h1>ISLAM AND CO.</h1>
-                <p> Login Security Access Gate</p>
+                <p>Booker Login </p>
             </div>
             <div class="auth-card-body">
                 <div style="margin-bottom:12px;">
                     <label class="field-label-node">User Name</label>
-                    <input type="text" id="nodeAuthUsername" class="input-control-node" placeholder="Enter User Name...">
+                    <input type="text" id="nodeAuthUsername" class="input-control-node" placeholder="User Name...">
                 </div>
                 <div style="margin-bottom:16px;">
                     <label class="field-label-node">Password</label>
@@ -130,6 +138,7 @@
                 </div>
             </div>
         </div>
+        <div class="shujaat-footer-branding">®Powered by Shujaat</div>
     </div>
 
     <div id="viewPanelWorkspace" class="screen-view-panel">
@@ -141,13 +150,13 @@
 
         <div class="app-main-title-theme-banner">
             <h2>ISLAM AND CO</h2>
-            <div class="live-now-badge">🟢 Now Live </div>
+            <div class="live-now-badge">🟢 Live Connected</div>
         </div>
 
         <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
                 <h3>Customer Search Panel </h3>
-                <span class="panel-corner-trash-basket" onclick="wipeCustomerLayoutFields()">🗑️ Clear Search</span>
+                <span class="panel-corner-trash-basket" onclick="wipeCustomerLayoutFields()">🗑️ Clear fields</span>
             </div>
             <div class="grid-inline-row-panel">
                 <div class="node-block-wrapper" style="width: 120px; flex-shrink: 0;">
@@ -165,32 +174,16 @@
             </div>
 
             <div class="customer-data-grid-layout">
-                <div>
-                    <label class="field-label-node">Outlet Name</label>
-                    <input type="text" id="fieldUiOutletName" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly>
-                </div>
-                <div>
-                    <label class="field-label-node">Outlet Address</label>
-                    <input type="text" id="fieldUiOutletAddress" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly>
-                </div>
-                <div>
-                    <label class="field-label-node">Contact Number</label>
-                    <input type="text" id="fieldUiContactNumber" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly>
-                </div>
-                <div>
-                    <label class="field-label-node">Owner Name</label>
-                    <input type="text" id="fieldUiOwnerName" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly>
-                </div>
-                <div style="grid-column: span 2;">
-                    <label class="field-label-node">Booker Assigned</label>
-                    <input type="text" id="fieldUiActiveBooker" class="input-control-node" readonly>
-                </div>
+                <div><label class="field-label-node">Outlet Name</label><input type="text" id="fieldUiOutletName" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly></div>
+                <div><label class="field-label-node">Outlet Address</label><input type="text" id="fieldUiOutletAddress" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly></div>
+                <div><label class="field-label-node">Contact Number</label><input type="text" id="fieldUiContactNumber" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly></div>
+                <div><label class="field-label-node">Owner Name</label><input type="text" id="fieldUiOwnerName" class="input-control-node" oninput="syncRealTimeToLiveBillBlueprint()" readonly></div>
+                <div style="grid-column: span 2;"><label class="field-label-node">Booker Assigned</label><input type="text" id="fieldUiActiveBooker" class="input-control-node" readonly></div>
             </div>
         </div>
+
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper">
-                <h3>Tax Status</h3>
-            </div>
+            <div class="workspace-card-header-wrapper"><h3>Tax Status</h3></div>
             <div style="margin-bottom: 10px;">
                 <label class="field-label-node">Tax Status Selection</label>
                 <select id="selectGlobalTaxAppPolicy" class="input-control-node" onchange="executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();">
@@ -202,23 +195,11 @@
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper">
-                <h3>Products Add to Cart</h3>
-            </div>
-            <div style="margin-bottom: 10px;">
-                <select id="selectDynamicProductInventoryCatalog" class="input-control-node" onchange="interceptProductSelectionEvent()"></select>
-            </div>
+            <div class="workspace-card-header-wrapper"><h3>Products Matrix Board</h3></div>
+            <div style="margin-bottom: 10px;"><select id="selectDynamicProductInventoryCatalog" class="input-control-node" onchange="interceptProductSelectionEvent()"></select></div>
             <div class="cart-scroll-container-block">
                 <table class="app-data-grid-table">
-                    <thead>
-                        <tr>
-                            <th>Products Name</th>
-                            <th style="width: 80px;">Qty</th>
-                            <th style="width: 90px;">Discount</th>
-                            <th style="width: 110px;">Net Amt</th>
-                            <th style="width: 70px; text-align: center;">Action</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Products Name</th><th style="width: 80px;">Qty</th><th style="width: 90px;">Discount</th><th style="width: 110px;">Net Amt</th><th style="width: 70px; text-align: center;">Action</th></tr></thead>
                     <tbody id="domTableBodySalesBasket"></tbody>
                 </table>
             </div>
@@ -230,94 +211,72 @@
         </div>
 
         <div class="workspace-card-section" style="background:#cbd5e1;">
-            <div class="workspace-card-header-wrapper" style="background: #cbd5e1; border-color: #94a3b8; border-left-color: #0f172a;">
-                <h3 style="color:#0f172a;">Live Bill View</h3>
-            </div>
-            
+            <div class="workspace-card-header-wrapper" style="background: #cbd5e1; border-color: #94a3b8; border-left-color: #0f172a;"><h3>Live Bill System Viewport</h3></div>
             <div id="invoicePrintCaptureTargetCanvas" class="excel-invoice-blueprint-viewport">
                 <div style="display:flex; justify-content:space-between; align-items: center; width:100%;">
-                    <div class="blueprint-txt-12x" style="font-weight: bold; color:#000 !important;">ISLAM AND CO.</div>
-                    <div class="blueprint-txt-12x secret-toggle-btn" style="font-weight: bold; color:#000 !important;" onclick="triggerSecretTaxMaskToggle()">SALE INVOICE</div>
+                    <div class="blueprint-txt-12x" style="font-weight: bold; text-transform: uppercase !important;">ISLAM AND CO.</div>
+                    <div class="blueprint-txt-12x secret-toggle-btn" style="font-weight: bold; text-transform: uppercase !important;" onclick="triggerSecretTaxMaskToggle()">SALE INVOICE</div>
                 </div>
-                <div class="blueprint-txt-9x" style="text-align: center; width:100%; margin: 1px 0; color:#000 !important;" id="billTimestampNode">-</div>
-                <div class="blueprint-txt-9x" style="line-height: 1.2; margin-bottom: 4px; color:#000 !important;">
-                    <strong>Distributor CNIC :</strong> 37202-4977404-3<br>
-                    <strong>Distributor NTN :</strong> A-48299<br>
-                    <strong>Distributor STRN :</strong> 9000<br>
-                    <strong>Distributor Address :</strong> CHOA SAIDAN SHAH, CHAKWAL
+                <div class="blueprint-txt-9x" style="text-align: center; width:100%; margin: 1px 0;" id="billTimestampNode">-</div>
+                <div class="blueprint-txt-9x" style="line-height: 1.2; margin-bottom: 4px; text-transform: uppercase !important;">
+                    <strong>Distributor CNIC :</strong> 37202-4977404-3<br><strong>Distributor NTN :</strong> A-48299<br><strong>Distributor STRN :</strong> 9000<br><strong>Distributor Address :</strong> CHOA SAIDAN SHAH, CHAKWAL
                 </div>
-                <div style="display:flex; gap:30px; margin: 2px 0; color:#000 !important;" class="blueprint-txt-9x">
-                    <div><strong>Dispatch#</strong> <span id="billDispatchRandomKey">-</span></div>
-                    <div><strong>Invoice#</strong> <span id="billInvoiceRandomKey">-</span></div>
-                </div>
+                <div style="display:flex; gap:30px; margin: 2px 0; text-transform: uppercase !important;" class="blueprint-txt-9x"><div><strong>DISPATCH#</strong> <span id="billDispatchRandomKey">-</span></div><div><strong>INVOICE#</strong> <span id="billInvoiceRandomKey">-</span></div></div>
                 <div style="width:100%; height:0.5px; background:#000000; margin: 4px 0;"></div>
                 
                 <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; width:100%; margin-bottom:4px; gap:10px;" class="blueprint-txt-9x">
                     <div style="display: flex; flex-direction: column; min-width: 0;">
-                        <div class="info-data-stack"><strong>Outlet ID</strong><span id="billOutId">-</span></div>
-                        <div class="info-data-stack"><strong>Outlet Name</strong><span id="billOutName">-</span></div>
-                        <div class="info-data-stack"><strong>Address</strong><span id="billOutAddress">-</span></div>
-                        <div class="info-data-stack"><strong>Tax Status</strong><span id="billOutTaxStatus">Normal</span></div>
+                        <div class="info-data-stack"><strong>Outlet:</strong><span id="billOutId">-</span></div>
+                        <div class="info-data-stack"><strong>Name:</strong><span id="billOutName">-</span></div>
+                        <div class="info-data-stack"><strong>Address:</strong><span id="billOutAddress">-</span></div>
+                        <div class="info-data-stack"><strong>Tax Status:</strong><span id="billOutTaxStatus">Normal</span></div>
                     </div>
                     <div style="display: flex; flex-direction: column; min-width: 0; align-items: flex-end; text-align: right;">
-                        <div class="info-data-stack"><strong>Owner Name</strong><span id="billOutOwner">-</span></div>
-                        <div class="info-data-stack"><strong>Contact No</strong><span id="billOutPhone">-</span></div>
+                        <div class="info-data-stack"><strong>Owner name:</strong><span id="billOutOwner">-</span></div>
+                        <div class="info-data-stack"><strong>Contact no:</strong><span id="billOutPhone">-</span></div>
                     </div>
                 </div>
 
                 <table class="bill-data-table">
-                    <thead>
-                        <tr>
-                            <th style="width:36%;">Pack name</th>
-                            <th style="width:10%; text-align: center;">Qty</th>
-                            <th style="width:13%; text-align: right;">Rate</th>
-                            <th style="width:14%; text-align: right;">Amount</th>
-                            <th style="width:14%; text-align: right;">Discount</th>
-                            <th style="width:13%; text-align: right;">NTP</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th style="width:36%;">PACK NAME</th><th style="width:10%; text-align: center;">QTY</th><th style="width:13%; text-align: right;">RATE</th><th style="width:14%; text-align: right;">AMOUNT</th><th style="width:14%; text-align: right;">DISCOUNT</th><th style="width:13%; text-align: right;">NTP</th></tr></thead>
                     <tbody id="billTableItemsDataBody"></tbody>
                 </table>
 
-                <div class="bill-totals-alignment-block">
+                <div class="bill-totals-alignment-block" style="text-transform: uppercase !important;">
                     <div><strong>Gross Amount:</strong><span class="bill-normal-value-container" id="billSummaryGrossAmount">0</span></div>
                     <div><strong>Promo:</strong><span class="bill-normal-value-container" id="billSummaryPromoAmount">0</span></div>
                     <div><strong>Discount:</strong><span class="bill-normal-value-container" id="billSummaryTotalDiscount">0</span></div>
-                    <div><strong>Advance income tax ():</strong><span class="bill-normal-value-container" id="billSummaryAdvanceTax">0</span></div>
-                    <div><strong>Net Amount:</strong><span class="bill-grand-value-container" style="font-weight: bold !important;" id="billSummaryGrandNet">0</span></div>
+                    <div><strong>Advance income tax(%):</strong><span class="bill-normal-value-container" id="billSummaryAdvanceTax">0</span></div>
+                    <div><strong>NET AMOUNT:</strong><span class="bill-grand-value-container" id="billSummaryGrandNet">0</span></div>
                 </div>
 
                 <div class="bill-horizontal-logistics-strip">
-                    <div><strong>User:</strong><span id="billLogisticsUser">Shujaat Raja</span></div>
-                    <div><strong>Booker:</strong><span id="billLogisticsBooker">-</span></div>
-                    <div><strong>Driver:</strong><span id="billLogisticsDriver">-</span></div>
-                    <div><strong>Veh#:</strong><span id="billLogisticsVeh">-</span></div>
-                    <div><strong>PJP:</strong><span id="billLogisticsPjp">-</span></div>
-                    <div style="flex-grow: 1; text-align: right;"><strong>Expected Delivery:</strong><span id="billLogisticsDeliveryDate">-</span></div>
+                    <div><strong>User:</strong><span id="billLogisticsUser">Shujaat Raja</span></div><div><strong>Booker:</strong><span id="billLogisticsBooker">-</span></div><div><strong>Driver:</strong><span id="billLogisticsDriver">-</span></div><div><strong>Veh#:</strong><span id="billLogisticsVeh">-</span></div><div><strong>PJP:</strong><span id="billLogisticsPjp">-</span></div><div style="flex-grow: 1; text-align: right;"><strong>Expected Delivery Date:</strong><span id="billLogisticsDeliveryDate">-</span></div>
                 </div>
             </div>
-            <br>
-            <button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="downloadBillSnapshotJpgFile()">Download Bill Snapshot Image 📸</button>
+            <br><button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="downloadBillSnapshotJpgFile()">Download Bill Snapshot Image 📸</button>
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper">
-                <h3> Send Order Whatsapp</h3>
-            </div>
+            <div class="workspace-card-header-wrapper"><h3>SEND ORDER WHATSAPP</h3></div>
             <div style="margin-bottom:10px;">
                 <select id="selectWhatsAppStaffMemberNode" class="input-control-node">
-                    <option value="923465846781">👤 Asiam Hussain</option>
-                    <option value="923415011140">👤 Adnan Hassan</option>
-                    <option value="923061645603">👤 Saqib Abbas</option>
-                    <option value="923461649698">👤 Arslan Sajid</option>
-                    <option value="923150564149">👤 Asim Raza</option>
-                    <option value="923105714429">👤 Naqeeb Ur Rehman</option>
+                    <option value="923465846781">👤 Asiam Hussain</option><option value="923415011140">👤 Adnan Hassan</option><option value="923061645603">👤 Saqib Abbas</option><option value="923461649698">👤 Arslan Sajid</option><option value="923150564149">👤 Asim Raza</option><option value="923105714429">👤 Naqeeb Ur Rehman</option>
                 </select>
             </div>
             <button class="btn-ui-action" style="background:#16a34a; width:100%; height:38px; font-size:13px;" onclick="commitRecordAndTransmitWhatsAppMessage()">Transmit Order Blueprint via WhatsApp 🚀</button>
         </div>
+
+        <!-- Demanded Countdown UI placement near footer -->
+        <div class="countdown-security-footer-box">
+            <span>🛡️ Inactivity Security Guard:</span>
+            <span id="lblCountdownTimerValue" style="font-size: 15px; background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px;">05:00</span>
+        </div>
+        <div class="shujaat-footer-branding" style="margin-top:10px;">®Software by Shujaat</div>
     </div>
 </div>
+
+<!-- Quantity Stepper Modal Component -->
 <div id="modalOverlayQuantityStepper" class="floating-modal-system-overlay">
     <div class="floating-modal-viewport-card">
         <div class="floating-modal-header" id="stepHeaderProductName">Adjust Quantity Matrix</div>
@@ -334,14 +293,13 @@
     </div>
 </div>
 
+<!-- Rate Sheet Modal Component -->
 <div id="modalOverlayRateCatalog" class="floating-modal-system-overlay">
     <div class="floating-modal-viewport-card">
         <div class="floating-modal-header">System Active Rate List Sheet</div>
         <div class="floating-modal-body" style="padding: 8px;">
             <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--border-elegant);">
-                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; background: #e2e8f0; padding: 6px; font-size: 11px; font-weight: 800;">
-                    <div>Product</div><div>Normal</div><div>Disc</div><div>Filer</div>
-                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; background: #e2e8f0; padding: 6px; font-size: 11px; font-weight: 800;"><div>Product</div><div>Normal</div><div>Disc</div><div>Filer</div></div>
                 <div id="containerRateCatalogModalInjectTarget"></div>
             </div>
             <button class="btn-ui-action" style="background:#ef4444; width:100%; height:35px; margin-top:8px;" onclick="closeRateCatalogModalWindow()">Close Sheet</button>
@@ -349,45 +307,22 @@
     </div>
 </div>
 
+<!-- History System Modal Component -->
 <div id="modalOverlayHistorySystem" class="floating-modal-system-overlay">
     <div class="floating-modal-viewport-card" style="max-width:650px; width: 95%;">
         <div class="floating-modal-header">⏳ History Collection Module</div>
         <div class="floating-modal-body" style="padding: 12px;">
             <div style="margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px; background: #f1f5f9; padding: 10px; border-radius: 4px;">
                 <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-                    <label class="field-label-node" style="margin-bottom:0;">From:</label>
-                    <input type="date" id="historyFilterFromDate" class="input-control-node" style="height:32px; width:135px;" onchange="renderHistoryModuleViews()">
-                    <label class="field-label-node" style="margin-bottom:0;">To:</label>
-                    <input type="date" id="historyFilterToDate" class="input-control-node" style="height:32px; width:135px;" onchange="renderHistoryModuleViews()">
+                    <label class="field-label-node" style="margin-bottom:0;">From:</label><input type="date" id="historyFilterFromDate" class="input-control-node" style="height:32px; width:135px;" onchange="renderHistoryModuleViews()">
+                    <label class="field-label-node" style="margin-bottom:0;">To:</label><input type="date" id="historyFilterToDate" class="input-control-node" style="height:32px; width:135px;" onchange="renderHistoryModuleViews()">
                     <button class="btn-ui-action" style="background:#ef4444; height:32px; font-size:11px; margin-left:auto;" onclick="purgeAllHistoryLogsWithConfirmation()">⚠️ Delete All</button>
                 </div>
-                <div style="font-size: 12px; font-weight: 800; color: #1e40af; border-top: 1px solid #cbd5e1; padding-top: 5px;" id="lblRangeHistoryTotalAmount">
-                    Total Amount In Selected Period: Rs. 0
-                </div>
+                <div style="font-size: 12px; font-weight: 800; color: #1e40af; border-top: 1px solid #cbd5e1; padding-top: 5px;" id="lblRangeHistoryTotalAmount">Total Amount In Selected Period: Rs. 0</div>
             </div>
-            <div class="history-tabs-container">
-                <div id="tabHistoryPickList" class="history-tab-btn active-tab" onclick="switchHistoryActiveTab('PickList')">📦 Pick List</div>
-                <div id="tabHistoryPreview" class="history-tab-btn" onclick="switchHistoryActiveTab('Preview')">📄 Bill Preview List</div>
-            </div>
-            <div id="panelHistoryPickList" class="history-content-panel active-panel">
-                <div style="background:#fff; border:1px solid #cbd5e1; padding:10px; max-height:240px; overflow-y:auto; font-size:12px;" id="historyPickListContainer"></div>
-                <button class="btn-ui-action" style="background:#16a34a; width:100%; height:35px; margin-top:8px;" onclick="exportPickListToExcelFormat()">📥 Export Pick List To Excel</button>
-            </div>
-            <div id="panelHistoryPreview" class="history-content-panel">
-                <div style="background:#fff; border:1px solid #cbd5e1; max-height:240px; overflow-y:auto;">
-                    <table class="app-data-grid-table" style="font-size:11.5px;">
-                        <thead>
-                            <tr>
-                                <th>Inv ID</th>
-                                <th>Outlet Name</th>
-                                <th>Net Bill</th>
-                                <th style="text-align:center;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="historyBillPreviewTableBodyTarget"></tbody>
-                    </table>
-                </div>
-            </div>
+            <div class="history-tabs-container"><div id="tabHistoryPickList" class="history-tab-btn active-tab" onclick="switchHistoryActiveTab('PickList')">📦 Pick List</div><div id="tabHistoryPreview" class="history-tab-btn" onclick="switchHistoryActiveTab('Preview')">📄 Bill Preview List</div></div>
+            <div id="panelHistoryPickList" class="history-content-panel active-panel"><div style="background:#fff; border:1px solid #cbd5e1; padding:10px; max-height:240px; overflow-y:auto; font-size:12px;" id="historyPickListContainer"></div><button class="btn-ui-action" style="background:#16a34a; width:100%; height:35px; margin-top:8px;" onclick="exportPickListToExcelFormat()">📥 Export Pick List To Excel</button></div>
+            <div id="panelHistoryPreview" class="history-content-panel"><div style="background:#fff; border:1px solid #cbd5e1; max-height:240px; overflow-y:auto;"><table class="app-data-grid-table" style="font-size:11.5px;"><thead><tr><th>Inv ID</th><th>Outlet Name</th><th>Net Bill</th><th style="text-align:center;">Action</th></tr></thead><tbody id="historyBillPreviewTableBodyTarget"></tbody></table></div></div>
             <button class="btn-ui-action" style="background:#475569; width:100%; height:35px; margin-top:12px;" onclick="closeHistorySystemModalWindow()">Close Module Panel</button>
         </div>
     </div>
@@ -399,139 +334,150 @@
     let localActiveSalesBasketArray = [];
     let authenticatedUserBookerString = "";
     let isSecretTaxMaskedActive = false;
+    let stateInvoiceRandomKey = "", stateDispatchRandomKey = "", stateDriverRandomString = "", stateVehRandomString = "", statePjpRandomString = "";
+    let activeInterceptionItemContext = null, autoTypingDebounceTimer, currentActiveHistoryTab = "PickList", wrongAttemptsLocalCount = 0;
     
-    let stateInvoiceRandomKey = "";
-    let stateDispatchRandomKey = "";
-    let stateDriverRandomString = "";
-    let stateVehRandomString = "";
-    let statePjpRandomString = "";
-    let stateUserRandomString = "Shujaat Raja";
-    
-    let activeInterceptionItemContext = null;
-    let autoTypingDebounceTimer;
-    let currentActiveHistoryTab = "PickList";
-    let wrongAttemptsLocalCount = 0;
+    // Inactivity Strict 5 Minutes Settings (300 Seconds Countdown)
+    const MAX_INACTIVITY_SECONDS = 300;
+    let remainingCountdownSeconds = MAX_INACTIVITY_SECONDS;
+    let mainCountdownIntervalTimerId = null;
 
-    window.addEventListener('DOMContentLoaded', function() {
-        initiateLiveSystemTimeStream();
-        checkAndApplySecurityLockoutState();
-        
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById("historyFilterFromDate").value = today;
-        document.getElementById("historyFilterToDate").value = today;
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "PrintScreen" || e.keyCode === 44) { e.preventDefault(); alert("🚨 Screenshot restricted under Shujaat Security Framework."); }
+        if ((e.ctrlKey && e.key === 'p') || (e.ctrlKey && e.keyCode === 80) || (e.ctrlKey && e.key === 's')) { e.preventDefault(); alert("🚨 Saving/Printing pages blocked."); }
+        if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) { e.preventDefault(); alert("🚨 Security Access Forbidden."); }
+    });
+    document.addEventListener("keyup", function(e) { if (e.key === "PrintScreen" || e.keyCode === 44) { navigator.clipboard.writeText(""); } });
 
-        const persistentToken = localStorage.getItem("islam_co_token_secure_2026");
-        if (persistentToken) {
-            authenticatedUserBookerString = persistentToken;
-            routeInterfaceToWorkspaceView();
-            loadSavedBillStateFromLocalMemory();
-        }
-        
-        const storedLocalMemoryCache = localStorage.getItem("islam_co_master_cache_2026");
-        if (storedLocalMemoryCache) {
-            cachedSystemMasterDataPayload = JSON.parse(storedLocalMemoryCache);
-            renderSystemPromoMarqueeComponent();
-            buildProductDropdownMenuOptions();
-        }
+    // Reset countdown on any active physical interaction inside the viewport
+    ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(evt => {
+        document.addEventListener(evt, () => { 
+            if (localStorage.getItem("islam_co_token_secure_2026")) {
+                remainingCountdownSeconds = MAX_INACTIVITY_SECONDS; 
+            }
+        });
     });
 
-    function checkAndApplySecurityLockoutState() {
-        const lockTimestamp = localStorage.getItem("islam_co_security_freeze_ts");
-        if (lockTimestamp) {
-            const delta = Date.now() - parseInt(lockTimestamp);
-            if (delta < 300000) {
-                const remainingSecs = Math.ceil((300000 - delta) / 1000);
-                activateFreezeUIState(remainingSecs);
-                return true;
-            } else {
-                localStorage.removeItem("islam_co_security_freeze_ts");
-                wrongAttemptsLocalCount = 0;
+    window.addEventListener('DOMContentLoaded', function() {
+        initiateLiveSystemTimeStream(); 
+        checkAndApplySecurityLockoutState(); 
+        
+        // Forced Rule: Clean up old login session tokens completely. Link click par hamesha clean page khulega.
+        localStorage.removeItem("islam_co_token_secure_2026");
+        
+        document.getElementById("historyFilterFromDate").value = new Date().toISOString().split('T')[0];
+        document.getElementById("historyFilterToDate").value = new Date().toISOString().split('T')[0];
+
+        const cache = localStorage.getItem("islam_co_master_cache_2026");
+        if (cache) { cachedSystemMasterDataPayload = JSON.parse(cache); renderSystemPromoMarqueeComponent(); buildProductDropdownMenuOptions(); }
+    });
+
+    function startInactivityMonitoringEngine() {
+        if(mainCountdownIntervalTimerId) clearInterval(mainCountdownIntervalTimerId);
+        remainingCountdownSeconds = MAX_INACTIVITY_SECONDS;
+        
+        mainCountdownIntervalTimerId = setInterval(() => {
+            if (localStorage.getItem("islam_co_token_secure_2026")) {
+                remainingCountdownSeconds--;
+                
+                // Formulate display layout string MM:SS
+                let minutes = Math.floor(remainingCountdownSeconds / 60);
+                let seconds = remainingCountdownSeconds % 60;
+                document.getElementById("lblCountdownTimerValue").innerText = 
+                    (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+                if (remainingCountdownSeconds <= 0) {
+                    clearInterval(mainCountdownIntervalTimerId);
+                    alert("⏳ App use na hone ki waja se auto logout executed securely!");
+                    terminateUserSessionState();
+                }
             }
+        }, 1000);
+    }
+
+    function checkAndApplySecurityLockoutState() {
+        const lockTs = localStorage.getItem("islam_co_freeze_timestamp");
+        const lockDur = localStorage.getItem("islam_co_freeze_duration");
+        if (lockTs && lockDur) {
+            const delta = Date.now() - parseInt(lockTs);
+            const totalMs = parseInt(lockDur);
+            if (delta < totalMs) { activateFreezeUIState(Math.ceil((totalMs - delta) / 1000)); return true; }
+            else { localStorage.removeItem("islam_co_freeze_timestamp"); localStorage.removeItem("islam_co_freeze_duration"); wrongAttemptsLocalCount = 0; }
         }
         return false;
     }
 
     function activateFreezeUIState(seconds) {
         const actionBtn = document.getElementById("btnAuthActionTrigger");
-        const warningContainer = document.getElementById("loginFeedbackStatusDisplayBox");
-        const mainErrorLabel = document.getElementById("lblSecurityMainErrorString");
-        
-        actionBtn.disabled = true;
-        let currentTimer = seconds;
-        
+        const warningBox = document.getElementById("loginFeedbackStatusDisplayBox");
+        const errorLbl = document.getElementById("lblSecurityMainErrorString");
+        actionBtn.disabled = true; let currentTimer = seconds;
         const countdownInt = setInterval(() => {
             if (currentTimer <= 0) {
-                clearInterval(countdownInt);
-                actionBtn.disabled = false;
-                actionBtn.innerText = "Login Securely & Sync Data";
-                warningContainer.style.display = "none";
-                localStorage.removeItem("islam_co_security_freeze_ts");
-                wrongAttemptsLocalCount = 0;
+                clearInterval(countdownInt); actionBtn.disabled = false; actionBtn.innerText = "Login Securely & Sync Data";
+                warningBox.style.display = "none"; localStorage.removeItem("islam_co_freeze_timestamp"); localStorage.removeItem("islam_co_freeze_duration");
             } else {
-                actionBtn.innerText = `System Frozen (${currentTimer}s)`;
-                warningContainer.style.display = "block";
-                mainErrorLabel.innerText = `Too many attempts! System frozen for ${Math.ceil(currentTimer/60)} mins.`;
-                currentTimer--;
+                actionBtn.innerText = `System Frozen (${currentTimer}s)`; warningBox.style.display = "block";
+                errorLbl.innerText = `Access Restricted! Try again after countdown finishes.`; currentTimer--;
             }
         }, 1000);
     }
 
     function validateIdentityAccessGateway() {
         if (checkAndApplySecurityLockoutState()) return;
-
-        const warningContainer = document.getElementById("loginFeedbackStatusDisplayBox");
-        const mainErrorLabel = document.getElementById("lblSecurityMainErrorString");
+        const warningBox = document.getElementById("loginFeedbackStatusDisplayBox");
+        const errorLbl = document.getElementById("lblSecurityMainErrorString");
         const actionBtn = document.getElementById("btnAuthActionTrigger");
-
         const userValue = document.getElementById("nodeAuthUsername").value.trim();
         const passValue = document.getElementById("nodeAuthPassword").value.trim();
 
-        if (!userValue || !passValue) { return alert("Please enter username and password."); }
-
-        actionBtn.innerText = "Please wait loading data..."; 
-        actionBtn.disabled = true;
-        warningContainer.style.display = "none";
+        if (!userValue || !passValue) return alert("Please enter username and password.");
+        actionBtn.innerText = "Login please wait..."; actionBtn.disabled = true; warningBox.style.display = "none";
 
         executeCrossDomainJsonpTransaction({ action: "loginAuthValidation", user: userValue, pass: passValue, deviceId: "Enterprise-Core" }, function(response) {
             let statusResult = response ? response.status : "failed";
             
             if (statusResult === "blocked" || response?.userStatus === "Blocked") {
-                actionBtn.innerText = "Login Securely & Sync Data"; 
-                actionBtn.disabled = false;
-                warningContainer.style.display = "block"; 
-                mainErrorLabel.innerText = "You are block Admin sy rabta kre";
-                return alert("❌ You are block Admin sy rabta kre");
+                actionBtn.innerText = "Login Securely & Sync Data"; actionBtn.disabled = false;
+                warningBox.style.display = "block"; errorLbl.innerText = "Admin Sy rabta kre";
+                return alert("❌ Admin Sy rabta kre");
             }
 
             if (statusResult === "success") {
-                wrongAttemptsLocalCount = 0;
-                authenticatedUserBookerString = response.bookerName || userValue;
+                wrongAttemptsLocalCount = 0; authenticatedUserBookerString = response.bookerName || userValue;
                 localStorage.setItem("islam_co_token_secure_2026", authenticatedUserBookerString);
                 
+                localStorage.removeItem("islam_co_master_cache_2026");
+                cachedSystemMasterDataPayload = null;
+
                 executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
                     if (incomingPayload && incomingPayload.status === "success") {
-                        cachedSystemMasterDataPayload = incomingPayload;
+                        cachedSystemMasterDataPayload = incomingPayload; 
                         localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
-                        renderSystemPromoMarqueeComponent();
+                        renderSystemPromoMarqueeComponent(); 
                         buildProductDropdownMenuOptions();
                     }
-                    actionBtn.innerText = "Login Securely & Sync Data"; 
-                    actionBtn.disabled = false;
+                    actionBtn.innerText = "Login Securely & Sync Data"; actionBtn.disabled = false; 
                     routeInterfaceToWorkspaceView();
+                    startInactivityMonitoringEngine();
                 });
             } else {
-                actionBtn.innerText = "Login Securely & Sync Data"; 
-                actionBtn.disabled = false;
-                wrongAttemptsLocalCount++;
-                let remaining = 3 - wrongAttemptsLocalCount;
-                if (wrongAttemptsLocalCount >= 3) {
-                    localStorage.setItem("islam_co_security_freeze_ts", Date.now().toString());
-                    activateFreezeUIState(300);
-                    alert("❌ 3 Wrong attempts complete! Screen frozen for 5 minutes.");
+                actionBtn.innerText = "Login Securely & Sync Data"; actionBtn.disabled = false;
+                if (statusResult === "unknown_user" || response?.isUnknown === true || response?.message === "User not found") {
+                    localStorage.setItem("islam_co_freeze_timestamp", Date.now().toString());
+                    localStorage.setItem("islam_co_freeze_duration", "600000"); 
+                    activateFreezeUIState(600); alert("❌ Admin Sy rabta kre");
                 } else {
-                    warningContainer.style.display = "block";
-                    mainErrorLabel.innerText = `Wrong Password! (${remaining} attempts left)`;
-                    alert(`⚠️ Password wrong! Sirf ${remaining} attempts baqi hain.`);
+                    wrongAttemptsLocalCount++;
+                    if (wrongAttemptsLocalCount >= 3) {
+                        localStorage.setItem("islam_co_freeze_timestamp", Date.now().toString());
+                        localStorage.setItem("islam_co_freeze_duration", "180000"); 
+                        activateFreezeUIState(180); alert("❌ 3 Wrong attempts! Screen frozen for 3 minutes.");
+                    } else {
+                        warningBox.style.display = "block"; errorLbl.innerText = `Wrong Password! (${3 - wrongAttemptsLocalCount} attempts left)`;
+                        alert(`⚠️ Password wrong! Only ${3 - wrongAttemptsLocalCount} attempts remaining.`);
+                    }
                 }
             }
         });
@@ -539,64 +485,43 @@
 
     function togglePasswordViewField() {
         const field = document.getElementById("nodeAuthPassword");
-        const icon = document.getElementById("togglePasswordVisibilityIcon");
         field.type = (field.type === "password") ? "text" : "password";
-        icon.innerText = (field.type === "password") ? "👁️" : "🕶️";
     }
 
     function initiateLiveSystemTimeStream() {
         setInterval(() => {
-            const now = new Date();
-            document.getElementById("lblLiveClockDisplay").innerText = "🕒 " + now.toLocaleString('en-US', { hour12: true });
+            const now = new Date(); document.getElementById("lblLiveClockDisplay").innerText = "🕒 " + now.toLocaleString('en-US', { hour12: true });
             let formattedDate = now.toLocaleString('en-GB', { day:'2-digit', month:'2-digit', year:'numeric' }) + " " + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-            if(document.getElementById("billTimestampNode")) { document.getElementById("billTimestampNode").innerText = formattedDate; }
+            if(document.getElementById("billTimestampNode")) document.getElementById("billTimestampNode").innerText = formattedDate;
         }, 1000);
     }
 
     function executeCrossDomainJsonpTransaction(paramsObj, runtimeCallback) {
         const generatedCallbackUid = 'islam_co_cb_' + Math.random().toString(36).substr(2, 9);
-        window[generatedCallbackUid] = function(data) {
-            runtimeCallback(data); document.body.removeChild(carrierScript); delete window[generatedCallbackUid];
-        };
+        window[generatedCallbackUid] = function(data) { if(runtimeCallback) runtimeCallback(data); document.body.removeChild(carrierScript); delete window[generatedCallbackUid]; };
         const queryStringParams = new URLSearchParams({...paramsObj, callback: generatedCallbackUid}).toString();
-        const carrierScript = document.createElement('script');
-        carrierScript.src = `${DEPLOYED_GAS_API_ENDPOINT}?${queryStringParams}`;
-        document.body.appendChild(carrierScript);
+        const carrierScript = document.createElement('script'); carrierScript.src = `${DEPLOYED_GAS_API_ENDPOINT}?${queryStringParams}`; document.body.appendChild(carrierScript);
     }
-</script>
-<script>
-    function routeInterfaceToWorkspaceView() {
-        document.getElementById("viewPanelLogin").classList.remove("view-active");
-        document.getElementById("viewPanelWorkspace").classList.add("view-active");
-        document.getElementById("lblActiveRuntimeBookerName").innerText = authenticatedUserBookerString;
-        document.getElementById("fieldUiActiveBooker").value = authenticatedUserBookerString;
 
+    function routeInterfaceToWorkspaceView() {
+        document.getElementById("viewPanelLogin").classList.remove("view-active"); document.getElementById("viewPanelWorkspace").classList.add("view-active");
+        document.getElementById("lblActiveRuntimeBookerName").innerText = authenticatedUserBookerString; document.getElementById("fieldUiActiveBooker").value = authenticatedUserBookerString;
         if(!stateInvoiceRandomKey) {
-            stateDispatchRandomKey = Math.floor(10000000000000 + Math.random() * 90000000000000).toString();
-            stateInvoiceRandomKey = Math.floor(100000 + Math.random() * 899999).toString();
-            const driversList = ["Muhammad Shabbir", "Bilal Hassan", "Raja Zeeshan", "Raja Irfan", "Nouman Hayyat"];
-            stateDriverRandomString = driversList[Math.floor(Math.random() * driversList.length)];
-            const requestedVehiclesPool = ["1715", "7650", "183", "9044", "9787"];
-            stateVehRandomString = requestedVehiclesPool[Math.floor(Math.random() * requestedVehiclesPool.length)];
-            statePjpRandomString = Math.floor(1000 + Math.random() * 9000).toString();
+            stateDispatchRandomKey = Math.floor(10000000000000 + Math.random() * 90000000000000).toString(); stateInvoiceRandomKey = Math.floor(100000 + Math.random() * 899999).toString();
+            const driversList = ["MUHAMMAD SHABBIR", "BILAL HASSAN", "RAJA ZEESHAN", "RAJA IRFAN", "NOUMAN HAYYAT"]; stateDriverRandomString = driversList[Math.floor(Math.random() * driversList.length)];
+            const vehiclesPool = ["1715", "7650", "183", "9044", "9787"]; stateVehRandomString = vehiclesPool[Math.floor(Math.random() * vehiclesPool.length)]; statePjpRandomString = Math.floor(1000 + Math.random() * 9000).toString();
         }
-        document.getElementById("billInvoiceRandomKey").innerText = stateInvoiceRandomKey;
-        document.getElementById("billDispatchRandomKey").innerText = stateDispatchRandomKey;
+        document.getElementById("billInvoiceRandomKey").innerText = stateInvoiceRandomKey; document.getElementById("billDispatchRandomKey").innerText = stateDispatchRandomKey;
         setTimeout(function() { executeCalculationsPipeline(); }, 100);
     }
 
     function renderSystemPromoMarqueeComponent() {
         if (cachedSystemMasterDataPayload && cachedSystemMasterDataPayload.promoMarquee) {
-            document.getElementById("globalMarqueeStripContainer").style.display = "flex";
             document.getElementById("globalPromoMarqueeString").innerText = cachedSystemMasterDataPayload.promoMarquee;
         }
     }
 
-    function triggerSecretTaxMaskToggle() {
-        isSecretTaxMaskedActive = !isSecretTaxMaskedActive;
-        alert(isSecretTaxMaskedActive ? "✨ Secret Filter Active: Filer Show Hoga Rate Normal Lagenge!" : "Secret Filter Deactivated.");
-        executeCalculationsPipeline();
-    }
+    function triggerSecretTaxMaskToggle() { isSecretTaxMaskedActive = !isSecretTaxMaskedActive; executeCalculationsPipeline(); }
 
     function adjustCustomerSearchState() {
         const mode = document.getElementById("selectRouteModeOption").value;
@@ -613,28 +538,19 @@
     function handleInstantOnInputSearch() {
         const mode = document.getElementById("selectRouteModeOption").value;
         const searchKey = document.getElementById("inputClientRegistrySearchKey").value.trim();
-        document.getElementById("billOutId").innerText = searchKey || "-";
-        syncRealTimeToLiveBillBlueprint();
-        if (mode === "Manual") {
-            clearTimeout(autoTypingDebounceTimer);
-            autoTypingDebounceTimer = setTimeout(function() { executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory(); }, 300);
-        }
+        document.getElementById("billOutId").innerText = searchKey || "-"; syncRealTimeToLiveBillBlueprint();
+        if (mode === "Manual") { clearTimeout(autoTypingDebounceTimer); autoTypingDebounceTimer = setTimeout(function() { executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory(); }, 300); }
     }
 
     function performCustomerRegistryQuery() {
-        const searchKey = document.getElementById("inputClientRegistrySearchKey").value.trim();
-        if (!searchKey) return alert("Search ID sequence absent.");
+        const searchKey = document.getElementById("inputClientRegistrySearchKey").value.trim(); if (!searchKey) return alert("Search ID absent.");
         document.getElementById("billOutId").innerText = searchKey;
         let match = cachedSystemMasterDataPayload?.masterData?.find(o => o.outletId.toLowerCase() === searchKey.toLowerCase());
         if (match) {
-            document.getElementById("fieldUiOutletName").value = match.outletName;
-            document.getElementById("fieldUiOutletAddress").value = match.outletAddress;
-            document.getElementById("fieldUiContactNumber").value = match.contactNumber;
-            document.getElementById("fieldUiOwnerName").value = match.ownerName;
-            document.getElementById("selectGlobalTaxAppPolicy").value = "Normal";
-            syncRealTimeToLiveBillBlueprint();
-            executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();
-        } else { alert("No data maps found in active storage."); }
+            document.getElementById("fieldUiOutletName").value = match.outletName; document.getElementById("fieldUiOutletAddress").value = match.outletAddress;
+            document.getElementById("fieldUiContactNumber").value = match.contactNumber; document.getElementById("fieldUiOwnerName").value = match.ownerName;
+            document.getElementById("selectGlobalTaxAppPolicy").value = "Normal"; syncRealTimeToLiveBillBlueprint(); executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();
+        } else { alert("No matching data found."); }
     }
 
     function syncRealTimeToLiveBillBlueprint() {
@@ -642,19 +558,14 @@
         document.getElementById("billOutAddress").innerText = document.getElementById("fieldUiOutletAddress").value || "-";
         document.getElementById("billOutPhone").innerText = document.getElementById("fieldUiContactNumber").value || "-";
         document.getElementById("billOutOwner").innerText = document.getElementById("fieldUiOwnerName").value || "-";
-        document.getElementById("billLogisticsBooker").innerText = authenticatedUserBookerString;
-        document.getElementById("billLogisticsDriver").innerText = stateDriverRandomString;
-        document.getElementById("billLogisticsVeh").innerText = stateVehRandomString;
-        document.getElementById("billLogisticsPjp").innerText = statePjpRandomString;
-        const outDate = new Date(); outDate.setDate(outDate.getDate() + 1);
-        document.getElementById("billLogisticsDeliveryDate").innerText = outDate.toLocaleDateString('en-GB');
+        document.getElementById("billLogisticsBooker").innerText = authenticatedUserBookerString; document.getElementById("billLogisticsDriver").innerText = stateDriverRandomString;
+        document.getElementById("billLogisticsVeh").innerText = stateVehRandomString; document.getElementById("billLogisticsPjp").innerText = statePjpRandomString;
+        const outDate = new Date(); outDate.setDate(outDate.getDate() + 1); document.getElementById("billLogisticsDeliveryDate").innerText = outDate.toLocaleDateString('en-GB');
     }
 
     function wipeCustomerLayoutFields() {
         ["fieldUiOutletName", "fieldUiOutletAddress", "fieldUiContactNumber", "fieldUiOwnerName", "inputClientRegistrySearchKey"].forEach(id => document.getElementById(id).value = "");
-        document.getElementById("billOutId").innerText = "-"; 
-        syncRealTimeToLiveBillBlueprint();
-        executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();
+        document.getElementById("billOutId").innerText = "-"; syncRealTimeToLiveBillBlueprint(); executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();
     }
 
     function launchRateCatalogModalWindow() {
@@ -669,11 +580,10 @@
     function buildProductDropdownMenuOptions() {
         const menuNode = document.getElementById("selectDynamicProductInventoryCatalog"); if(!menuNode) return;
         menuNode.innerHTML = "<option value=''>-- Click to Expand Product Drop Down List Items Sheet --</option>";
-        cachedSystemMasterDataPayload?.rates?.forEach(item => {
-            menuNode.innerHTML += `<option value="${escape(item.packName)}|${item.rate}|${item.discount}|${item.filer}">${item.packName}</option>`;
-        });
+        cachedSystemMasterDataPayload?.rates?.forEach(item => { menuNode.innerHTML += `<option value="${escape(item.packName)}|${item.rate}|${item.discount}|${item.filer}">${item.packName}</option>`; });
     }
 
+    // Modal Trigger Actions Interceptor
     function interceptProductSelectionEvent() {
         const packedString = document.getElementById("selectDynamicProductInventoryCatalog").value; if (!packedString) return;
         const parts = packedString.split("|");
@@ -682,40 +592,24 @@
         document.getElementById("stepLabelProductRates").innerText = `Normal Rate: Rs.${activeInterceptionItemContext.normalRate} / Filer Rate: Rs.${activeInterceptionItemContext.filerRate}`;
         document.getElementById("inputStepperManualValue").value = "1"; document.getElementById("modalOverlayQuantityStepper").style.display = "flex";
     }
-
-    function closeQuantityStepperModalWindow() {
-        document.getElementById("modalOverlayQuantityStepper").style.display = "none"; document.getElementById("selectDynamicProductInventoryCatalog").value = "";
-    }
-
-    function modifyStepperCounterNode(offset) {
-        let node = document.getElementById("inputStepperManualValue");
-        let val = (parseInt(node.value) || 1) + offset; if (val < 1) val = 1; node.value = val;
-    }
+    function closeQuantityStepperModalWindow() { document.getElementById("modalOverlayQuantityStepper").style.display = "none"; document.getElementById("selectDynamicProductInventoryCatalog").value = ""; }
+    function modifyStepperCounterNode(offset) { let node = document.getElementById("inputStepperManualValue"); let val = (parseInt(node.value) || 1) + offset; if (val < 1) val = 1; node.value = val; }
 
     function commitStepperItemToSalesBasketArray() {
         const qty = parseInt(document.getElementById("inputStepperManualValue").value) || 1; if (!activeInterceptionItemContext) return;
         let existingItem = localActiveSalesBasketArray.find(item => item.packName === activeInterceptionItemContext.packName);
         if (existingItem) { existingItem.quantity += qty; } 
         else {
-            localActiveSalesBasketArray.push({
-                packName: activeInterceptionItemContext.packName, normalRate: activeInterceptionItemContext.normalRate,
-                sheetDiscount: activeInterceptionItemContext.sheetDiscount, filerRate: activeInterceptionItemContext.filerRate, quantity: qty
-            });
+            localActiveSalesBasketArray.push({ packName: activeInterceptionItemContext.packName, normalRate: activeInterceptionItemContext.normalRate, sheetDiscount: activeInterceptionItemContext.sheetDiscount, filerRate: activeInterceptionItemContext.filerRate, quantity: qty });
         }
         closeQuantityStepperModalWindow(); executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();
     }
 
     function executeCalculationsPipeline() {
         let taxRule = document.getElementById("selectGlobalTaxAppPolicy").value;
-        let displayTaxRule = taxRule;
-        
-        if (isSecretTaxMaskedActive) {
-            taxRule = "Normal"; displayTaxRule = "Filer";
-        }
-        
-        let qtyTotal = 0, grossTotal = 0, discTotal = 0, promoTotal = 0, netTotal = 0;
+        let displayTaxRule = taxRule; if (isSecretTaxMaskedActive) { taxRule = "Normal"; displayTaxRule = "Filer"; }
+        let qtyTotal = 0, grossTotal = 0, discTotal = 0, netTotal = 0;
         const cartTarget = document.getElementById("domTableBodySalesBasket"); const billTarget = document.getElementById("billTableItemsDataBody");
-        
         if(cartTarget) cartTarget.innerHTML = ""; if(billTarget) billTarget.innerHTML = "";
         if(document.getElementById("billOutTaxStatus")) document.getElementById("billOutTaxStatus").innerText = displayTaxRule;
         
@@ -724,113 +618,77 @@
             let disc = (taxRule === "Filer") ? 0 : row.sheetDiscount;
             let gross = rate * row.quantity; let discLess = disc * row.quantity; let net = gross - discLess;
             qtyTotal += row.quantity; grossTotal += gross; discTotal += discLess; netTotal += net;
-
-            if(cartTarget) {
-                cartTarget.innerHTML += `<tr><td><span class="product-name-single-line-clamp" title="${row.packName}">${row.packName}</span></td><td>${row.quantity} Pcs</td><td>Rs. ${discLess}</td><td><strong>Rs. ${net}</strong></td><td style="text-align: center;"><button class="btn-ui-action" style="background:#ef4444; height:22px; font-size:10px; padding:0 6px;" onclick="purgeTargetBasketItemRow(${rIdx})">Remove</button></td></tr>`;
-            }
-            if(billTarget) {
-                billTarget.innerHTML += `<tr><td>${row.packName}</td><td style="text-align: center;">${row.quantity}</td><td style="text-align: right;">${rate}</td><td style="text-align: right;">${gross}</td><td style="text-align: right;">${discLess > 0 ? discLess : '-'}</td><td style="text-align: right;">${net}</td></tr>`;
-            }
+            if(cartTarget) cartTarget.innerHTML += `<tr><td><span class="product-name-single-line-clamp" title="${row.packName}">${row.packName}</span></td><td>${row.quantity} Pcs</td><td>Rs. ${discLess}</td><td><strong>Rs. ${net}</strong></td><td style="text-align: center;"><button class="btn-ui-action" style="background:#ef4444; height:22px; font-size:10px; padding:0 6px;" onclick="purgeTargetBasketItemRow(${rIdx})">Remove</button></td></tr>`;
+            if(billTarget) billTarget.innerHTML += `<tr><td>${row.packName}</td><td style="text-align: center;">${row.quantity}</td><td style="text-align: right;">${rate}</td><td style="text-align: right;">${gross}</td><td style="text-align: right;">${discLess > 0 ? discLess : '-'}</td><td style="text-align: right;">${net}</td></tr>`;
         });
-
-        if(localActiveSalesBasketArray.length > 0 && billTarget) {
-            billTarget.innerHTML += `<tr style="font-weight: bold; background: #ffffff;"><td style="color:#000 !important;">Total</td><td style="text-align: center; color:#000 !important;">${qtyTotal}</td><td colspan="4"></td></tr>`;
-        }
+        if(localActiveSalesBasketArray.length > 0 && billTarget) billTarget.innerHTML += `<tr style="font-weight: bold; background: #ffffff;"><td>Total</td><td style="text-align: center;">${qtyTotal}</td><td colspan="4"></td></tr>`;
         syncRealTimeToLiveBillBlueprint();
         if(document.getElementById("billSummaryGrossAmount")) document.getElementById("billSummaryGrossAmount").innerText = grossTotal;
-        if(document.getElementById("billSummaryPromoAmount")) document.getElementById("billSummaryPromoAmount").innerText = promoTotal;
         if(document.getElementById("billSummaryTotalDiscount")) document.getElementById("billSummaryTotalDiscount").innerText = discTotal;
-        if(document.getElementById("billSummaryAdvanceTax")) document.getElementById("billSummaryAdvanceTax").innerText = "0";
         if(document.getElementById("billSummaryGrandNet")) document.getElementById("billSummaryGrandNet").innerText = netTotal;
     }
 
-    document.addEventListener("contextmenu", e => e.preventDefault());
     function purgeTargetBasketItemRow(index) { localActiveSalesBasketArray.splice(index, 1); executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory(); }
-
     function saveCurrentBillStateToLocalMemory() {
-        const statePayload = {
-            basket: localActiveSalesBasketArray, routeMode: document.getElementById("selectRouteModeOption").value,
-            searchKey: document.getElementById("inputClientRegistrySearchKey").value, outName: document.getElementById("fieldUiOutletName").value,
-            outAddr: document.getElementById("fieldUiOutletAddress").value, outPhone: document.getElementById("fieldUiContactNumber").value,
-            outOwner: document.getElementById("fieldUiOwnerName").value, taxPolicy: document.getElementById("selectGlobalTaxAppPolicy").value,
-            invoiceKey: stateInvoiceRandomKey, dispatchKey: stateDispatchRandomKey, driver: stateDriverRandomString, veh: stateVehRandomString, pjpKey: statePjpRandomString
-        };
+        const statePayload = { basket: localActiveSalesBasketArray, routeMode: document.getElementById("selectRouteModeOption").value, searchKey: document.getElementById("inputClientRegistrySearchKey").value, outName: document.getElementById("fieldUiOutletName").value, outAddr: document.getElementById("fieldUiOutletAddress").value, outPhone: document.getElementById("fieldUiContactNumber").value, outOwner: document.getElementById("fieldUiOwnerName").value, taxPolicy: document.getElementById("selectGlobalTaxAppPolicy").value, invoiceKey: stateInvoiceRandomKey, dispatchKey: stateDispatchRandomKey, driver: stateDriverRandomString, veh: stateVehRandomString, pjpKey: statePjpRandomString };
         localStorage.setItem("islam_co_active_bill_state", JSON.stringify(statePayload));
     }
 
-    function loadSavedBillStateFromLocalMemory() {
-        const data = localStorage.getItem("islam_co_active_bill_state");
-        if(data) {
-            try {
-                const parsed = JSON.parse(data); localActiveSalesBasketArray = parsed.basket || [];
-                document.getElementById("selectRouteModeOption").value = parsed.routeMode || "System";
-                document.getElementById("inputClientRegistrySearchKey").value = parsed.searchKey || "";
-                document.getElementById("fieldUiOutletName").value = parsed.outName || "";
-                document.getElementById("fieldUiOutletAddress").value = parsed.outAddr || "";
-                document.getElementById("fieldUiContactNumber").value = parsed.outPhone || "";
-                document.getElementById("fieldUiOwnerName").value = parsed.outOwner || "";
-                document.getElementById("selectGlobalTaxAppPolicy").value = parsed.taxPolicy || "Normal";
-                stateInvoiceRandomKey = parsed.invoiceKey || ""; stateDispatchRandomKey = parsed.dispatchKey || "";
-                stateDriverRandomString = parsed.driver || ""; stateVehRandomString = parsed.veh || ""; statePjpRandomString = parsed.pjpKey || "";
-                executeCalculationsPipeline();
-            } catch(e) { console.error(e); }
-        }
-    }
-
     function clearEntireActiveBillData() {
-        localActiveSalesBasketArray = [];
-        stateInvoiceRandomKey = Math.floor(100000 + Math.random() * 899999).toString();
-        stateDispatchRandomKey = Math.floor(10000000000000 + Math.random() * 90000000000000).toString();
-        document.getElementById("billInvoiceRandomKey").innerText = stateInvoiceRandomKey;
-        document.getElementById("billDispatchRandomKey").innerText = stateDispatchRandomKey;
-        wipeCustomerLayoutFields(); localStorage.removeItem("islam_co_active_bill_state");
-        alert("✅ Bill cache data successfully wiped out!");
+        localActiveSalesBasketArray = []; stateInvoiceRandomKey = Math.floor(100000 + Math.random() * 899999).toString(); stateDispatchRandomKey = Math.floor(10000000000000 + Math.random() * 90000000000000).toString();
+        document.getElementById("billInvoiceRandomKey").innerText = stateInvoiceRandomKey; document.getElementById("billDispatchRandomKey").innerText = stateDispatchRandomKey;
+        wipeCustomerLayoutFields(); localStorage.removeItem("islam_co_active_bill_state"); alert("✅ Bill cache data wiped out!");
     }
 
     function commitBillRecordToLocalHistoryLogs() {
-        const outletIdVal = document.getElementById("inputClientRegistrySearchKey").value.trim() || "-";
-        const outletNameVal = document.getElementById("fieldUiOutletName").value.trim() || "Manual Out";
-        if(localActiveSalesBasketArray.length === 0) return;
-        const todayDateStr = new Date().toISOString().split('T')[0];
-        const logItem = {
-            invoiceId: stateInvoiceRandomKey, dispatchId: stateDispatchRandomKey, date: todayDateStr,
-            time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
-            outletId: outletIdVal, outletName: outletNameVal, outletAddress: document.getElementById("fieldUiOutletAddress").value,
-            ownerName: document.getElementById("fieldUiOwnerName").value, contactNumber: document.getElementById("fieldUiContactNumber").value,
-            taxPolicy: document.getElementById("selectGlobalTaxAppPolicy").value, bookerName: authenticatedUserBookerString,
-            driverName: stateDriverRandomString, vehicleNo: stateVehRandomString, pjpCode: statePjpRandomString,
-            basketItems: JSON.parse(JSON.stringify(localActiveSalesBasketArray)), totalNetBill: document.getElementById("billSummaryGrandNet").innerText
-        };
-        let activeLogs = []; const existingLogs = localStorage.getItem("islam_co_history_logs_v1");
-        if(existingLogs) { activeLogs = JSON.parse(existingLogs); }
-        if(!activeLogs.some(l => l.invoiceId === logItem.invoiceId)) {
-            activeLogs.push(logItem); localStorage.setItem("islam_co_history_logs_v1", JSON.stringify(activeLogs));
-        }
+        const outletIdVal = document.getElementById("inputClientRegistrySearchKey").value.trim() || "-"; const outletNameVal = document.getElementById("fieldUiOutletName").value.trim() || "Manual Out";
+        if(localActiveSalesBasketArray.length === 0) return; const todayDateStr = new Date().toISOString().split('T')[0];
+        const logItem = { invoiceId: stateInvoiceRandomKey, dispatchId: stateDispatchRandomKey, date: todayDateStr, time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }), outletId: outletIdVal, outletName: outletNameVal, outletAddress: document.getElementById("fieldUiOutletAddress").value, ownerName: document.getElementById("fieldUiOwnerName").value, contactNumber: document.getElementById("fieldUiContactNumber").value, taxPolicy: document.getElementById("selectGlobalTaxAppPolicy").value, bookerName: authenticatedUserBookerString, driverName: stateDriverRandomString, vehicleNo: stateVehRandomString, pjpCode: statePjpRandomString, basketItems: JSON.parse(JSON.stringify(localActiveSalesBasketArray)), totalNetBill: document.getElementById("billSummaryGrandNet").innerText };
+        let activeLogs = []; const existingLogs = localStorage.getItem("islam_co_history_logs_v1"); if(existingLogs) activeLogs = JSON.parse(existingLogs);
+        if(!activeLogs.some(l => l.invoiceId === logItem.invoiceId)) { activeLogs.push(logItem); localStorage.setItem("islam_co_history_logs_v1", JSON.stringify(activeLogs)); }
     }
 
-    function downloadBillSnapshotJpgFile() {
-        commitBillRecordToLocalHistoryLogs();
-        const node = document.getElementById("invoicePrintCaptureTargetCanvas");
-        html2canvas(node, { scale: 3, useCORS: true, backgroundColor: "#ffffff" }).then(canvas => {
-            const a = document.createElement("a"); a.download = `INVOICE_${stateInvoiceRandomKey}.jpg`;
-            a.href = canvas.toDataURL("image/jpeg", 1.0); a.click();
-        });
-    }
+    function downloadBillSnapshotJpgFile() { commitBillRecordToLocalHistoryLogs(); const node = document.getElementById("invoicePrintCaptureTargetCanvas"); html2canvas(node, { scale: 3, useCORS: true, backgroundColor: "#ffffff" }).then(canvas => { const a = document.createElement("a"); a.download = `INVOICE_${stateInvoiceRandomKey}.jpg`; a.href = canvas.toDataURL("image/jpeg", 1.0); a.click(); }); }
 
     function commitRecordAndTransmitWhatsAppMessage() {
-        const outletIdVal = document.getElementById("inputClientRegistrySearchKey").value.trim();
-        const outletNameVal = document.getElementById("fieldUiOutletName").value.trim();
-        if (!outletIdVal || !outletNameVal || localActiveSalesBasketArray.length === 0) return alert("System state validation fail.");
+        const outId = document.getElementById("inputClientRegistrySearchKey").value.trim();
+        const outName = document.getElementById("fieldUiOutletName").value.trim();
+        const outAddress = document.getElementById("fieldUiOutletAddress").value.trim();
+        const outPhone = document.getElementById("fieldUiContactNumber").value.trim();
+        if (!outId || !outName || localActiveSalesBasketArray.length === 0) return alert("System validation fail.");
         commitBillRecordToLocalHistoryLogs();
+
         let summary = localActiveSalesBasketArray.map(p => `${p.packName} (Qty: ${p.quantity})`).join(", ");
-        let params = new URLSearchParams();
-        params.append("outletId", outletIdVal); params.append("outletName", outletNameVal); params.append("productsName", summary); 
-        params.append("bookerName", authenticatedUserBookerString); params.append("totalBill", document.getElementById("billSummaryGrandNet").innerText); params.append("invoiceKey", stateInvoiceRandomKey);
+        let params = new URLSearchParams(); params.append("outletId", outId); params.append("outletName", outName); params.append("productsName", summary); params.append("bookerName", authenticatedUserBookerString); params.append("totalBill", document.getElementById("billSummaryGrandNet").innerText); params.append("invoiceKey", stateInvoiceRandomKey);
 
         fetch(DEPLOYED_GAS_API_ENDPOINT, { method: "POST", mode: "no-cors", body: params }).then(() => {
-            let msg = `*ISLAM AND CO ORDER*\n*Invoice ID:* ${stateInvoiceRandomKey}\n*Outlet Name:* ${outletNameVal}\n-------------------\n`;
-            localActiveSalesBasketArray.forEach(r => { msg += `• ${r.packName} | Qty: ${r.quantity}\n`; });
-            msg += `-------------------\n*Net Bill:* Rs. ${document.getElementById("billSummaryGrandNet").innerText}`;
+            let taxRule = document.getElementById("selectGlobalTaxAppPolicy").value;
+            let msg = `*ISLAM AND CO ORDER SYSTEM*\n`;
+            msg += `------------------------------------\n`;
+            msg += `*Invoice ID:* ${stateInvoiceRandomKey}\n`;
+            msg += `*Outlet ID:* ${outId}\n`;
+            msg += `*Outlet Name:* ${outName}\n`;
+            msg += `*Address:* ${outAddress}\n`;
+            msg += `*Phone:* ${outPhone}\n`;
+            msg += `*Booker:* ${authenticatedUserBookerString}\n`;
+            msg += `------------------------------------\n`;
+            msg += `*PRODUCTS ITEMS MATRIX:*\n`;
+            
+            localActiveSalesBasketArray.forEach(item => {
+                let rate = (taxRule === "Filer") ? item.filerRate : item.normalRate;
+                let disc = (taxRule === "Filer") ? 0 : item.sheetDiscount;
+                let gross = rate * item.quantity;
+                let totalDisc = disc * item.quantity;
+                let net = gross - totalDisc;
+                msg += `• *${item.packName}*\n   Qty: ${item.quantity} | Rate: Rs.${rate} | Disc: Rs.${totalDisc} | Amt: Rs.${net}\n`;
+            });
+            
+            msg += `------------------------------------\n`;
+            msg += `*Total Discount:* Rs. ${document.getElementById("billSummaryTotalDiscount").innerText}\n`;
+            msg += `*Net Amount:* Rs. ${document.getElementById("billSummaryGrandNet").innerText}\n`;
+            msg += `------------------------------------\n`;
+            msg += `*®Software by Shujaat*`;
+
             window.open(`https://api.whatsapp.com/send?phone=${document.getElementById("selectWhatsAppStaffMemberNode").value}&text=${encodeURIComponent(msg)}`, "_blank");
             clearEntireActiveBillData();
         });
@@ -838,95 +696,52 @@
 
     function openHistorySystemModalWindow() { document.getElementById("modalOverlayHistorySystem").style.display = "flex"; renderHistoryModuleViews(); }
     function closeHistorySystemModalWindow() { document.getElementById("modalOverlayHistorySystem").style.display = "none"; }
-
-    function switchHistoryActiveTab(targetTab) {
-        currentActiveHistoryTab = targetTab;
-        document.getElementById("tabHistoryPickList").classList.remove("active-tab"); document.getElementById("tabHistoryPreview").classList.remove("active-tab");
-        document.getElementById("panelHistoryPickList").classList.remove("active-panel"); document.getElementById("panelHistoryPreview").classList.remove("active-panel");
-        if(targetTab === 'PickList') {
-            document.getElementById("tabHistoryPickList").classList.add("active-tab"); document.getElementById("panelHistoryPickList").classList.add("active-panel");
-        } else {
-            document.getElementById("tabHistoryPreview").classList.add("active-tab"); document.getElementById("panelHistoryPreview").classList.add("active-panel");
-        }
-        renderHistoryModuleViews();
-    }
+    function switchHistoryActiveTab(targetTab) { currentActiveHistoryTab = targetTab; document.getElementById("tabHistoryPickList").classList.remove("active-tab"); document.getElementById("tabHistoryPreview").classList.remove("active-tab"); document.getElementById("panelHistoryPickList").classList.remove("active-panel"); document.getElementById("panelHistoryPreview").classList.remove("active-panel"); if(targetTab === 'PickList') { document.getElementById("tabHistoryPickList").classList.add("active-tab"); document.getElementById("panelHistoryPickList").classList.add("active-panel"); } else { document.getElementById("tabHistoryPreview").classList.add("active-tab"); document.getElementById("panelHistoryPreview").classList.add("active-panel"); } renderHistoryModuleViews(); }
 
     function renderHistoryModuleViews() {
-        const fromDate = document.getElementById("historyFilterFromDate").value;
-        const toDate = document.getElementById("historyFilterToDate").value;
+        const fromDate = document.getElementById("historyFilterFromDate").value; const toDate = document.getElementById("historyFilterToDate").value;
         const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); let allLogs = rawLogs ? JSON.parse(rawLogs) : [];
         let filteredLogs = allLogs.filter(l => l.date >= fromDate && l.date <= toDate);
-
-        let rangeAggregateBillSum = 0;
-        filteredLogs.forEach(log => { rangeAggregateBillSum += parseFloat(log.totalNetBill || 0); });
-        document.getElementById("lblRangeHistoryTotalAmount").innerText = `Total Amount In Selected Period: Rs. ${rangeAggregateBillSum.toLocaleString()}`;
+        let aggSum = 0; filteredLogs.forEach(log => { aggSum += parseFloat(log.totalNetBill || 0); });
+        document.getElementById("lblRangeHistoryTotalAmount").innerText = `Total Amount In Selected Period: Rs. ${aggSum.toLocaleString()}`;
 
         const pickContainer = document.getElementById("historyPickListContainer");
-        if(filteredLogs.length === 0) {
-            pickContainer.innerHTML = `<div style="text-align:center; padding:20px; color:#64748b;">No history records found.</div>`;
-        } else {
-            let productSummaryMap = {}; let totalCasesCount = 0; let sampleLog = filteredLogs[0];
-            filteredLogs.forEach(log => {
-                log.basketItems.forEach(item => {
-                    if(!productSummaryMap[item.packName]) { productSummaryMap[item.packName] = 0; }
-                    productSummaryMap[item.packName] += item.quantity; totalCasesCount += item.quantity;
-                });
-            });
-            let headerMetaHtml = `<div style="line-height:1.4;"><strong>📅 Range:</strong> ${fromDate} To ${toDate} <br><strong>👤 Booker:</strong> ${sampleLog.bookerName}</div><div style="font-weight:bold; display:grid; grid-template-columns:3fr 1fr; border-bottom:1px solid #000; margin-top:5px;"><div>Product Name</div><div style="text-align:right;">Total Qty</div></div>`;
-            let rowsHtml = "";
-            for (let pName in productSummaryMap) { rowsHtml += `<div style="display:grid; grid-template-columns:3fr 1fr; padding:3px 0; border-bottom:0.5px solid #e2e8f0;"><div>${pName}</div><div style="text-align:right; font-weight:bold;">${productSummaryMap[pName]} Pcs</div></div>`; }
-            let footerMetaHtml = `<div style="margin-top:10px; text-align:right; font-weight:bold; font-size:13px; color:var(--brand-blue);">Total Combined: ${totalCasesCount} Pcs</div>`;
-            pickContainer.innerHTML = headerMetaHtml + rowsHtml + footerMetaHtml;
+        if(filteredLogs.length === 0) { pickContainer.innerHTML = `<div style="text-align:center; padding:20px; color:#64748b;">No history records found.</div>`; } 
+        else {
+            let summaryMap = {}; let totalCases = 0; let sampleLog = filteredLogs[0];
+            filteredLogs.forEach(log => { log.basketItems.forEach(item => { if(!summaryMap[item.packName]) summaryMap[item.packName] = 0; summaryMap[item.packName] += item.quantity; totalCases += item.quantity; }); });
+            let headerHtml = `<div style="line-height:1.4;"><strong>📅 Range:</strong> ${fromDate} To ${toDate} <br><strong>👤 Booker:</strong> ${sampleLog.bookerName}</div><div style="font-weight:bold; display:grid; grid-template-columns:3fr 1fr; border-bottom:1px solid #000; margin-top:5px;"><div>Product Name</div><div style="text-align:right;">Total Qty</div></div>`;
+            let rowsHtml = ""; for (let pName in summaryMap) { rowsHtml += `<div style="display:grid; grid-template-columns:3fr 1fr; padding:3px 0; border-bottom:0.5px solid #e2e8f0;"><div>${pName}</div><div style="text-align:right; font-weight:bold;">${summaryMap[pName]} Pcs</div></div>`; }
+            pickContainer.innerHTML = headerHtml + rowsHtml + `<div style="margin-top:10px; text-align:right; font-weight:bold; font-size:13px; color:var(--brand-blue);">Total Combined: ${totalCases} Pcs</div>`;
         }
-
         const tableBody = document.getElementById("historyBillPreviewTableBodyTarget"); tableBody.innerHTML = "";
         if(filteredLogs.length === 0) { tableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:15px;">No bills in range.</td></tr>`; } 
-        else {
-            filteredLogs.forEach(log => {
-                tableBody.innerHTML += `<tr><td>${log.invoiceId}</td><td>${log.outletName} (${log.date})</td><td>Rs. ${log.totalNetBill}</td><td style="text-align:center;"><button class="btn-ui-action" style="background:var(--brand-accent); height:24px; font-size:10px; padding:0 8px;" onclick="reloadTargetBillFromHistoryToViewport('${log.invoiceId}')">Preview</button></td></tr>`;
-            });
-        }
+        else { filteredLogs.forEach(log => { tableBody.innerHTML += `<tr><td>${log.invoiceId}</td><td>${log.outletName} (${log.date})</td><td>Rs. ${log.totalNetBill}</td><td style="text-align:center;"><button class="btn-ui-action" style="background:var(--brand-accent); height:24px; font-size:10px; padding:0 8px;" onclick="reloadTargetBillFromHistoryToViewport('${log.invoiceId}')">Preview</button></td></tr>`; }); }
     }
 
     function reloadTargetBillFromHistoryToViewport(invId) {
         const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); if(!rawLogs) return;
-        let allLogs = JSON.parse(rawLogs); let log = allLogs.find(l => l.invoiceId === invId);
+        let log = JSON.parse(rawLogs).find(l => l.invoiceId === invId);
         if(log) {
-            localActiveSalesBasketArray = log.basketItems;
-            document.getElementById("inputClientRegistrySearchKey").value = log.outletId; document.getElementById("fieldUiOutletName").value = log.outletName;
-            document.getElementById("fieldUiOutletAddress").value = log.outletAddress; document.getElementById("fieldUiContactNumber").value = log.contactNumber;
-            document.getElementById("fieldUiOwnerName").value = log.ownerName; document.getElementById("selectGlobalTaxAppPolicy").value = log.taxPolicy;
-            stateInvoiceRandomKey = log.invoiceId; stateDispatchRandomKey = log.dispatchId; stateDriverRandomString = log.driverName; stateVehRandomString = log.vehicleNo; statePjpRandomString = log.pjpCode;
-            executeCalculationsPipeline(); closeHistorySystemModalWindow(); saveCurrentBillStateToLocalMemory();
-            alert(`📄 Invoice #${invId} loaded successfully!`);
+            localActiveSalesBasketArray = log.basketItems; document.getElementById("inputClientRegistrySearchKey").value = log.outletId; document.getElementById("fieldUiOutletName").value = log.outletName; document.getElementById("fieldUiOutletAddress").value = log.outletAddress; document.getElementById("fieldUiContactNumber").value = log.contactNumber; document.getElementById("fieldUiOwnerName").value = log.ownerName; document.getElementById("selectGlobalTaxAppPolicy").value = log.taxPolicy; stateInvoiceRandomKey = log.invoiceId; stateDispatchRandomKey = log.dispatchId; stateDriverRandomString = log.driverName; stateVehRandomString = log.vehicleNo; statePjpRandomString = log.pjpCode; executeCalculationsPipeline(); closeHistorySystemModalWindow(); saveCurrentBillStateToLocalMemory(); alert(`📄 Invoice #${invId} loaded successfully!`);
         }
     }
 
-    function purgeAllHistoryLogsWithConfirmation() {
-        if(confirm("⚠️ Completely delete all localized history records?")) {
-            localStorage.removeItem("islam_co_history_logs_v1"); renderHistoryModuleViews(); alert("🗑️ History deleted!");
-        }
-    }
-
+    function purgeAllHistoryLogsWithConfirmation() { if(confirm("⚠️ Completely delete all localized history records?")) { localStorage.removeItem("islam_co_history_logs_v1"); renderHistoryModuleViews(); alert("🗑️ History deleted!"); } }
     function exportPickListToExcelFormat() {
         const fromDate = document.getElementById("historyFilterFromDate").value; const toDate = document.getElementById("historyFilterToDate").value;
-        const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); let allLogs = rawLogs ? JSON.parse(rawLogs) : [];
-        let filteredLogs = allLogs.filter(l => l.date >= fromDate && l.date <= toDate);
-        if(filteredLogs.length === 0) return alert("No data to export.");
-        let productSummaryMap = {}; let totalCasesCount = 0; let sampleLog = filteredLogs[0];
-        filteredLogs.forEach(log => {
-            log.basketItems.forEach(item => {
-                if(!productSummaryMap[item.packName]) productSummaryMap[item.packName] = 0;
-                productSummaryMap[item.packName] += item.quantity; totalCasesCount += item.quantity;
-            });
-        });
-        let excelRows = ""; for (let pName in productSummaryMap) { excelRows += `<tr><td>${pName}</td><td>${productSummaryMap[pName]}</td></tr>`; }
-        let excelTemplate = `<table border="1"><tr style="background:#1e40af; color:#fff;"><th colspan="2">PICK LIST</th></tr><tr><td><b>Range:</b></td><td>${fromDate} To ${toDate}</td></tr><tr><td><b>Booker:</b></td><td>${sampleLog.bookerName}</td></tr>${excelRows}<tr><td><b>Total:</b></td><td>${totalCasesCount} Pcs</td></tr></table>`;
-        const blob = new Blob([excelTemplate], { type: "application/vnd.ms-excel" }); const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob); a.download = `LOADOUT_${fromDate}_TO_${toDate}.xls`; a.click();
+        const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); let filteredLogs = (rawLogs ? JSON.parse(rawLogs) : []).filter(l => l.date >= fromDate && l.date <= toDate); if(filteredLogs.length === 0) return alert("No data to export.");
+        let summaryMap = {}; let totalCases = 0; let sampleLog = filteredLogs[0];
+        filteredLogs.forEach(log => { log.basketItems.forEach(item => { if(!summaryMap[item.packName]) summaryMap[item.packName] = 0; summaryMap[item.packName] += item.quantity; totalCases += item.quantity; }); });
+        let excelRows = ""; for (let pName in summaryMap) { excelRows += `<tr><td>${pName}</td><td>${summaryMap[pName]}</td></tr>`; }
+        let template = `<table border="1"><tr style="background:#1e40af; color:#fff;"><th colspan="2">PICK LIST</th></tr><tr><td><b>Range:</b></td><td>${fromDate} To ${toDate}</td></tr><tr><td><b>Booker:</b></td><td>${sampleLog.bookerName}</td></tr>${excelRows}<tr><td><b>Total:</b></td><td>${totalCases} Pcs</td></tr></table>`;
+        const blob = new Blob([template], { type: "application/vnd.ms-excel" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `LOADOUT_${fromDate}_TO_${toDate}.xls`; a.click();
     }
-
-    function terminateUserSessionState() { localStorage.removeItem("islam_co_token_secure_2026"); location.reload(); }
+    function terminateUserSessionState() { 
+        if(mainCountdownIntervalTimerId) clearInterval(mainCountdownIntervalTimerId);
+        localStorage.removeItem("islam_co_token_secure_2026"); 
+        location.reload(); 
+    }
 </script>
 </body>
 </html>
