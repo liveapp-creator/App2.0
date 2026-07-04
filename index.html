@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#1e40af">
-    <title>ISLAM AND CO - Booker Portal</title>
+    <title>ISLAM AND CO - Booker</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
@@ -29,8 +29,7 @@
         .app-fluid-canvas { width: 100%; max-width: 1100px; margin: 0 auto; padding: 10px; padding-bottom: 80px; }
         .screen-view-panel { display: none; }
         .screen-view-panel.view-active { display: block; }
-
-        .secure-auth-card { max-width: 420px; margin: 60px auto 20px auto; background: var(--surface-clean); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-elegant); overflow: hidden; position: relative; }
+                .secure-auth-card { max-width: 420px; margin: 60px auto 20px auto; background: var(--surface-clean); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-elegant); overflow: hidden; position: relative; }
         .auth-brand-header { background: var(--brand-blue); padding: 25px; text-align: center; color: white; }
         .auth-brand-header h1 { font-size: 28px; font-weight: 900; letter-spacing: 0.5px; }
         .auth-brand-header p { font-size: 11px; color: #93c5fd; margin-top: 4px; text-transform: uppercase; font-weight: 700; }
@@ -53,19 +52,16 @@
         .input-control-node { width: 100%; padding: 6px 10px; border: 1px solid var(--border-elegant); border-radius: 4px; font-size: 13px; font-weight: 600; color: #0f172a; background: var(--input-soft-bg); height: 35px; outline: none; }
         .input-control-node:focus { border-color: var(--brand-accent); background: #ffffff; }
         .input-control-node[readonly] { background: #e2e8f0; color: #1e293b; font-weight: 700; }
-
         .password-input-wrapper { position: relative; width: 100%; }
         .password-toggle-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; user-select: none; font-size: 16px; color: #64748b; z-index: 5; }
         .btn-compact-search-action { background: var(--brand-blue); color: white; border: none; padding: 0 20px; height: 35px; font-size: 11.5px; font-weight: 700; border-radius: 4px; cursor: pointer; flex-shrink: 0; }
         .customer-data-grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
-
         .cart-scroll-container-block { max-height: 380px; overflow-y: auto; border: 1px solid var(--border-elegant); border-radius: 4px; }
         .app-data-grid-table { width: 100%; border-collapse: collapse; }
-        .app-data-grid-table th { background: #f1f5f9; color: #475569; font-size: 10.5px; font-weight: 800; text-transform: uppercase; padding: 5px 8px; text-align: left; border-bottom: 2px solid var(--border-elegant); position: sticky; top: 0; z-index: 10; }
+        .app-data-grid-table th { background: #f1f5f9; color: #475569; font-size: 11px; font-weight: 800; padding: 5px 8px; text-align: left; border-bottom: 2px solid var(--border-elegant); position: sticky; top: 0; z-index: 10; }
         .app-data-grid-table td { padding: 4px 8px; font-size: 11.5px; color: var(--text-main); border-bottom: 1px solid var(--border-elegant); background: #ffffff; font-weight: 600; }
         .product-name-single-line-clamp { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 320px; font-size: 12px; font-weight: 700; color: #0f172a; }
-
-        .floating-modal-system-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 15px; }
+                .floating-modal-system-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 15px; }
         .floating-modal-viewport-card { background: var(--surface-clean); width: 100%; max-width: 500px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-elegant); }
         .floating-modal-header { background: var(--brand-blue); color: white; padding: 10px 15px; font-size: 13px; font-weight: 800; text-align: center; text-transform: uppercase; }
         .floating-modal-body { padding: 15px; }
@@ -74,22 +70,21 @@
         .quantity-stepper-input { width: 70px; text-align: center; font-size: 18px; font-weight: 800; height: 38px; border: 1px solid var(--border-elegant); border-radius: 4px; }
         .btn-ui-action { background: var(--brand-blue); color: white; border: none; padding: 0 14px; height: 35px; font-size: 12px; font-weight: 700; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
 
-        /* Proper Case Live Bill Engine Layout Specifications */
         .excel-invoice-blueprint-viewport { background: #ffffff !important; color: #000000 !important; width: 100%; max-width: 600px; padding: 15px; margin: 0 auto; border: 1px solid #000000 !important; line-height: 1.2; box-sizing: border-box; overflow: hidden; }
         .excel-invoice-blueprint-viewport * { font-family: var(--excel-font) !important; color: #000000 !important; box-sizing: border-box; }
         .blueprint-txt-9x { font-size: 9px !important; color: #000000 !important; }
         .blueprint-txt-12x { font-size: 12px !important; color: #000000 !important; }
         
         .bill-data-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 9px !important; table-layout: fixed; border: none !important; }
-        .bill-data-table th { font-weight: bold !important; text-align: left; padding: 3px 2px; border: none !important; border-bottom: 0.5px solid #000000 !important; color: #000000 !important; text-transform: uppercase !important; }
+        .bill-data-table th { font-weight: bold !important; text-align: left; padding: 3px 2px; border: none !important; border-bottom: 0.5px solid #000000 !important; color: #000000 !important; }
         .bill-data-table td { padding: 3px 2px; border: none !important; border-bottom: 0.5px solid #000000 !important; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; vertical-align: middle !important; color: #000000 !important; }
         
         .bill-totals-alignment-block { display: flex; flex-direction: column; align-items: flex-end; width: 100%; margin-top: 3px; font-size: 9px !important; gap: 1px; }
         .bill-totals-alignment-block > div { display: flex; justify-content: flex-end; align-items: center; width: 100%; color: #000000 !important; }
-        .bill-grand-value-container { border: 0.5px solid #000000; padding: 2px 4px; font-weight: bold; margin-top: 1px; font-size: 9px !important; display: inline-block; min-width: 55px; text-align: right; margin-left: 2px; color: #000000 !important; }
-        .bill-normal-value-container { padding: 0px 4px; font-weight: normal; font-size: 9px !important; display: inline-block; min-width: 55px; text-align: right; margin-left: 2px; color: #000000 !important; }
+        .bill-grand-value-container { border: 0.5px solid #000000; padding: 2px 4px; font-weight: bold !important; margin-top: 1px; font-size: 9px !important; display: inline-block; min-width: 55px; text-align: right; margin-left: 2px; color: #000000 !important; }
+        .bill-normal-value-container { padding: 0px 4px; font-weight: normal !important; font-size: 9px !important; display: inline-block; min-width: 55px; text-align: right; margin-left: 2px; color: #000000 !important; }
         
-        .bill-horizontal-logistics-strip { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; width: 100%; font-size: 8px !important; gap: 5px; border: none !important; margin-top: 8px; padding-top: 0px; color: #000000 !important; text-transform: uppercase !important; }
+        .bill-horizontal-logistics-strip { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; width: 100%; font-size: 8px !important; gap: 5px; border: none !important; margin-top: 8px; padding-top: 0px; color: #000000 !important; }
         .bill-horizontal-logistics-strip > div { display: flex; flex-direction: column; min-width: 0; word-wrap: break-word; color: #000000 !important; }
         .info-data-stack { display: flex; flex-direction: column; margin-bottom: 3px; width: 100%; color: #000000 !important; }
         .info-data-stack strong { font-weight: bold !important; font-size: 9px !important; color: #000000 !important; }
@@ -102,15 +97,14 @@
         .history-content-panel.active-panel { display: block; }
         .secret-toggle-btn { cursor: pointer; user-select: none; }
         
-        /* Countdown Box UI styling near Footer */
         .countdown-security-footer-box { background: #fee2e2; border: 1px solid #fca5a5; border-radius: 6px; padding: 10px; text-align: center; margin-top: 15px; color: #991b1b; font-weight: 800; font-size: 13px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         .shujaat-footer-branding { text-align: center; padding: 10px 0 20px 0; font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px; width: 100%; }
     </style>
 </head>
 <body>
-  <div class="announcement-banner-strip" id="globalMarqueeStripContainer">
+    <div class="announcement-banner-strip" id="globalMarqueeStripContainer">
     <span style="color:#fca5a5; font-weight:900; padding-right:5px; text-transform:uppercase; white-space:nowrap;">📢 ANNOUNCEMENT:</span>
-    <marquee id="globalPromoMarqueeString" scrollamount="4">SYSTEM CHANNELS OPERATIONAL. SECURE DATA MATRIX SYNC LIVE ROUTING ACTIVE...</marquee>
+    <marquee id="globalPromoMarqueeString" scrollamount="4">SYSTEM CHANNELS OPERATIONAL. DATA MATRIX SYNC LIVE ROUTING ACTIVE...</marquee>
 </div>
 
 <div class="app-fluid-canvas">
@@ -118,7 +112,7 @@
         <div class="secure-auth-card">
             <div class="auth-brand-header">
                 <h1>ISLAM AND CO.</h1>
-                <p>Booker Login Access Gate</p>
+                <p>Booker Login🔐</p>
             </div>
             <div class="auth-card-body">
                 <div style="margin-bottom:12px;">
@@ -132,7 +126,7 @@
                         <span class="password-toggle-eye" id="togglePasswordVisibilityIcon" onclick="togglePasswordViewField()">👁️</span>
                     </div>
                 </div>
-                <button class="btn-ui-action" id="btnAuthActionTrigger" style="width:100%; height:38px; font-size:12px;" onclick="validateIdentityAccessGateway()">Login Securely & Sync Data</button>
+                <button class="btn-ui-action" id="btnAuthActionTrigger" style="width:100%; height:38px; font-size:12px;" onclick="validateIdentityAccessGateway()">Login</button>
                 <div id="loginFeedbackStatusDisplayBox" style="margin-top:12px; padding:10px; border-radius:4px; display:none; text-align:center; border: 1px solid #ef4444; background: #fee2e2;">
                     <div id="lblSecurityMainErrorString" style="font-size:13px; font-weight:900; color:#b91c1c;"></div>
                 </div>
@@ -149,18 +143,17 @@
         </div>
 
         <div class="app-main-title-theme-banner">
-            <h2>ISLAM AND CO</h2>
+            <h2>ISLAM AND CO.</h2>
             <div class="live-now-badge">🟢 Live Connected</div>
         </div>
-
-        <div class="workspace-card-section">
+                <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
-                <h3>Customer Panel Management</h3>
+                <h3>Customer Search Panel</h3>
                 <span class="panel-corner-trash-basket" onclick="wipeCustomerLayoutFields()">🗑️ Clear fields</span>
             </div>
             <div class="grid-inline-row-panel">
                 <div class="node-block-wrapper" style="width: 120px; flex-shrink: 0;">
-                    <label class="field-label-node">Route Mode</label>
+                    <label class="field-label-node">Select Mode</label>
                     <select id="selectRouteModeOption" class="input-control-node" style="padding:6px; font-size:12px;" onchange="adjustCustomerSearchState()">
                         <option value="System">System ID</option>
                         <option value="Manual">Manual ID</option>
@@ -183,7 +176,7 @@
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper"><h3>Tax Configurations</h3></div>
+            <div class="workspace-card-header-wrapper"><h3>Tax Status Selection</h3></div>
             <div style="margin-bottom: 10px;">
                 <label class="field-label-node">Tax Status Framework</label>
                 <select id="selectGlobalTaxAppPolicy" class="input-control-node" onchange="executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();">
@@ -191,15 +184,15 @@
                     <option value="Filer">Filer Rate</option>
                 </select>
             </div>
-            <button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="launchRateCatalogModalWindow()">📋 Open Rate List Sheet</button>
+            <button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="launchRateCatalogModalWindow()">📋 Open Rate List </button>
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper"><h3>Products Matrix Board</h3></div>
+            <div class="workspace-card-header-wrapper"><h3>Products Add to Cart 🛒</h3></div>
             <div style="margin-bottom: 10px;"><select id="selectDynamicProductInventoryCatalog" class="input-control-node" onchange="interceptProductSelectionEvent()"></select></div>
             <div class="cart-scroll-container-block">
                 <table class="app-data-grid-table">
-                    <thead><tr><th>Products Name</th><th style="width: 80px;">Qty</th><th style="width: 90px;">Discount</th><th style="width: 110px;">Net Amt</th><th style="width: 70px; text-align: center;">Action</th></tr></thead>
+                    <thead><tr><th>Pack name</th><th style="width: 80px;">Qty</th><th style="width: 90px;">Discount</th><th style="width: 110px;">Net Amt</th><th style="width: 70px; text-align: center;">Action</th></tr></thead>
                     <tbody id="domTableBodySalesBasket"></tbody>
                 </table>
             </div>
@@ -209,19 +202,18 @@
             <button class="btn-ui-action" style="background: #ef4444; flex: 1; height: 38px;" onclick="clearEntireActiveBillData()">🗑️ Clear Entire Bill</button>
             <button class="btn-ui-action" style="background: #0f172a; flex: 1; height: 38px;" onclick="openHistorySystemModalWindow()">⏳ Open History Module</button>
         </div>
-
-        <div class="workspace-card-section" style="background:#cbd5e1;">
+                <div class="workspace-card-section" style="background:#cbd5e1;">
             <div class="workspace-card-header-wrapper" style="background: #cbd5e1; border-color: #94a3b8; border-left-color: #0f172a;"><h3>Live Bill System Viewport</h3></div>
             <div id="invoicePrintCaptureTargetCanvas" class="excel-invoice-blueprint-viewport">
                 <div style="display:flex; justify-content:space-between; align-items: center; width:100%;">
-                    <div class="blueprint-txt-12x" style="font-weight: bold; text-transform: uppercase !important;">ISLAM AND CO.</div>
-                    <div class="blueprint-txt-12x secret-toggle-btn" style="font-weight: bold; text-transform: uppercase !important;" onclick="triggerSecretTaxMaskToggle()">SALE INVOICE</div>
+                    <div class="blueprint-txt-12x" style="font-weight: bold;">ISLAM AND CO.</div>
+                    <div class="blueprint-txt-12x secret-toggle-btn" style="font-weight: bold;" onclick="triggerSecretTaxMaskToggle()">SALE INVOICE</div>
                 </div>
                 <div class="blueprint-txt-9x" style="text-align: center; width:100%; margin: 1px 0;" id="billTimestampNode">-</div>
-                <div class="blueprint-txt-9x" style="line-height: 1.2; margin-bottom: 4px; text-transform: uppercase !important;">
-                    <strong>DISTRIBUTOR CNIC :</strong> 37202-4977404-3<br><strong>DISTRIBUTOR NTN :</strong> A-48299<br><strong>DISTRIBUTOR STRN :</strong> 9000<br><strong>DISTRIBUTOR ADDRESS :</strong> CHOA SAIDAN SHAH, CHAKWAL
+                <div class="blueprint-txt-9x" style="line-height: 1.2; margin-bottom: 4px;">
+                    <strong>Distributor CNIC :</strong> 37202-4977404-3<br><strong>Distributor NTN :</strong> A-48299<br><strong>Distributor STRN :</strong> 9000<br><strong>Distributor Address :</strong> CHOA SAIDAN SHAH, CHAKWAL
                 </div>
-                <div style="display:flex; gap:30px; margin: 2px 0; text-transform: uppercase !important;" class="blueprint-txt-9x"><div><strong>DISPATCH#</strong> <span id="billDispatchRandomKey">-</span></div><div><strong>INVOICE#</strong> <span id="billInvoiceRandomKey">-</span></div></div>
+                <div style="display:flex; gap:30px; margin: 2px 0;" class="blueprint-txt-9x"><div><strong>Dispatch#</strong> <span id="billDispatchRandomKey">-</span></div><div><strong>Invoice#</strong> <span id="billInvoiceRandomKey">-</span></div></div>
                 <div style="width:100%; height:0.5px; background:#000000; margin: 4px 0;"></div>
                 
                 <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; width:100%; margin-bottom:4px; gap:10px;" class="blueprint-txt-9x">
@@ -238,27 +230,27 @@
                 </div>
 
                 <table class="bill-data-table">
-                    <thead><tr><th style="width:36%;">PACK NAME</th><th style="width:10%; text-align: center;">QTY</th><th style="width:13%; text-align: right;">RATE</th><th style="width:14%; text-align: right;">AMOUNT</th><th style="width:14%; text-align: right;">DISCOUNT</th><th style="width:13%; text-align: right;">NTP</th></tr></thead>
+                    <thead><tr><th style="width:36%;">Pack name</th><th style="width:10%; text-align: center;">Qty</th><th style="width:13%; text-align: right;">Rate</th><th style="width:14%; text-align: right;">Amount</th><th style="width:14%; text-align: right;">Discount</th><th style="width:13%; text-align: right;">NTP</th></tr></thead>
                     <tbody id="billTableItemsDataBody"></tbody>
                 </table>
 
-                <div class="bill-totals-alignment-block" style="text-transform: uppercase !important;">
-                    <div><strong>GROSS AMOUNT:</strong><span class="bill-normal-value-container" id="billSummaryGrossAmount">0</span></div>
-                    <div><strong>PROMO:</strong><span class="bill-normal-value-container" id="billSummaryPromoAmount">0</span></div>
-                    <div><strong>DISCOUNT:</strong><span class="bill-normal-value-container" id="billSummaryTotalDiscount">0</span></div>
-                    <div><strong>ADVANCE INCOME TAX ():</strong><span class="bill-normal-value-container" id="billSummaryAdvanceTax">0</span></div>
-                    <div><strong>NET AMOUNT:</strong><span class="bill-grand-value-container" id="billSummaryGrandNet">0</span></div>
+                <div class="bill-totals-alignment-block">
+                    <div><span style="font-weight: normal !important;">Gross Amount:</span><span class="bill-normal-value-container" id="billSummaryGrossAmount">0</span></div>
+                    <div><span style="font-weight: normal !important;">Promo:</span><span class="bill-normal-value-container" id="billSummaryPromoAmount">0</span></div>
+                    <div><span style="font-weight: normal !important;">Discount:</span><span class="bill-normal-value-container" id="billSummaryTotalDiscount">0</span></div>
+                    <div><span style="font-weight: normal !important;">Advance Income Tax ():</span><span class="bill-normal-value-container" id="billSummaryAdvanceTax">0</span></div>
+                    <div><span style="font-weight: bold !important;">Net Amount:</span><span class="bill-grand-value-container" id="billSummaryGrandNet">0</span></div>
                 </div>
 
                 <div class="bill-horizontal-logistics-strip">
-                    <div><strong>USER:</strong><span id="billLogisticsUser">SHUJAAT RAJA</span></div><div><strong>BOOKER:</strong><span id="billLogisticsBooker">-</span></div><div><strong>DRIVER:</strong><span id="billLogisticsDriver">-</span></div><div><strong>VEH#:</strong><span id="billLogisticsVeh">-</span></div><div><strong>PJP:</strong><span id="billLogisticsPjp">-</span></div><div style="flex-grow: 1; text-align: right;"><strong>EXPECTED DELIVERY:</strong><span id="billLogisticsDeliveryDate">-</span></div>
+                    <div><strong>User:</strong><span id="billLogisticsUser">Shujaat Raja</span></div><div><strong>Booker:</strong><span id="billLogisticsBooker">-</span></div><div><strong>Driver:</strong><span id="billLogisticsDriver">-</span></div><div><strong>Veh#:</strong><span id="billLogisticsVeh">-</span></div><div><strong>Pjp:</strong><span id="billLogisticsPjp">-</span></div><div style="flex-grow: 1; text-align: right;"><strong>Expected Delivery:</strong><span id="billLogisticsDeliveryDate">-</span></div>
                 </div>
             </div>
             <br><button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="downloadBillSnapshotJpgFile()">Download Bill Snapshot Image 📸</button>
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper"><h3>Transmit Portal Gateway</h3></div>
+            <div class="workspace-card-header-wrapper"><h3>Send Order To Whatsapp 📱</h3></div>
             <div style="margin-bottom:10px;">
                 <select id="selectWhatsAppStaffMemberNode" class="input-control-node">
                     <option value="923465846781">👤 Asiam Hussain</option><option value="923415011140">👤 Adnan Hassan</option><option value="923061645603">👤 Saqib Abbas</option><option value="923461649698">👤 Arslan Sajid</option><option value="923150564149">👤 Asim Raza</option><option value="923105714429">👤 Naqeeb Ur Rehman</option>
@@ -267,7 +259,6 @@
             <button class="btn-ui-action" style="background:#16a34a; width:100%; height:38px; font-size:13px;" onclick="commitRecordAndTransmitWhatsAppMessage()">Transmit Order Blueprint via WhatsApp 🚀</button>
         </div>
 
-        <!-- Demanded Countdown UI placement near footer -->
         <div class="countdown-security-footer-box">
             <span>🛡️ Inactivity Security Guard:</span>
             <span id="lblCountdownTimerValue" style="font-size: 15px; background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px;">05:00</span>
@@ -276,7 +267,6 @@
     </div>
 </div>
 
-<!-- Quantity Stepper Modal Component -->
 <div id="modalOverlayQuantityStepper" class="floating-modal-system-overlay">
     <div class="floating-modal-viewport-card">
         <div class="floating-modal-header" id="stepHeaderProductName">Adjust Quantity Matrix</div>
@@ -293,7 +283,6 @@
     </div>
 </div>
 
-<!-- Rate Sheet Modal Component -->
 <div id="modalOverlayRateCatalog" class="floating-modal-system-overlay">
     <div class="floating-modal-viewport-card">
         <div class="floating-modal-header">System Active Rate List Sheet</div>
@@ -307,7 +296,6 @@
     </div>
 </div>
 
-<!-- History System Modal Component -->
 <div id="modalOverlayHistorySystem" class="floating-modal-system-overlay">
     <div class="floating-modal-viewport-card" style="max-width:650px; width: 95%;">
         <div class="floating-modal-header">⏳ History Collection Module</div>
@@ -337,20 +325,18 @@
     let stateInvoiceRandomKey = "", stateDispatchRandomKey = "", stateDriverRandomString = "", stateVehRandomString = "", statePjpRandomString = "";
     let activeInterceptionItemContext = null, autoTypingDebounceTimer, currentActiveHistoryTab = "PickList", wrongAttemptsLocalCount = 0;
     
-    // Inactivity Strict 5 Minutes Settings (300 Seconds Countdown)
     const MAX_INACTIVITY_SECONDS = 300;
     let remainingCountdownSeconds = MAX_INACTIVITY_SECONDS;
     let mainCountdownIntervalTimerId = null;
 
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", function(e) {
-        if (e.key === "PrintScreen" || e.keyCode === 44) { e.preventDefault(); alert("🚨 Screenshot restricted under Shujaat Security Framework."); }
+        if (e.key === "PrintScreen" || e.keyCode === 44) { e.preventDefault(); alert("🚨 Screenshot restricted."); }
         if ((e.ctrlKey && e.key === 'p') || (e.ctrlKey && e.keyCode === 80) || (e.ctrlKey && e.key === 's')) { e.preventDefault(); alert("🚨 Saving/Printing pages blocked."); }
         if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) { e.preventDefault(); alert("🚨 Security Access Forbidden."); }
     });
     document.addEventListener("keyup", function(e) { if (e.key === "PrintScreen" || e.keyCode === 44) { navigator.clipboard.writeText(""); } });
 
-    // Reset countdown on any active physical interaction inside the viewport
     ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(evt => {
         document.addEventListener(evt, () => { 
             if (localStorage.getItem("islam_co_token_secure_2026")) {
@@ -362,8 +348,6 @@
     window.addEventListener('DOMContentLoaded', function() {
         initiateLiveSystemTimeStream(); 
         checkAndApplySecurityLockoutState(); 
-        
-        // Forced Rule: Clean up old login session tokens completely. Link click par hamesha clean page khulega.
         localStorage.removeItem("islam_co_token_secure_2026");
         
         document.getElementById("historyFilterFromDate").value = new Date().toISOString().split('T')[0];
@@ -373,6 +357,11 @@
         if (cache) { cachedSystemMasterDataPayload = JSON.parse(cache); renderSystemPromoMarqueeComponent(); buildProductDropdownMenuOptions(); }
     });
 
+    function formatNumberWithCommas(num) {
+        let cleanNum = parseFloat(num) || 0;
+        return cleanNum.toLocaleString('en-US', { maximumFractionDigits: 2 });
+    }
+
     function startInactivityMonitoringEngine() {
         if(mainCountdownIntervalTimerId) clearInterval(mainCountdownIntervalTimerId);
         remainingCountdownSeconds = MAX_INACTIVITY_SECONDS;
@@ -380,16 +369,13 @@
         mainCountdownIntervalTimerId = setInterval(() => {
             if (localStorage.getItem("islam_co_token_secure_2026")) {
                 remainingCountdownSeconds--;
-                
-                // Formulate display layout string MM:SS
                 let minutes = Math.floor(remainingCountdownSeconds / 60);
                 let seconds = remainingCountdownSeconds % 60;
-                document.getElementById("lblCountdownTimerValue").innerText = 
-                    (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+                document.getElementById("lblCountdownTimerValue").innerText = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 
                 if (remainingCountdownSeconds <= 0) {
                     clearInterval(mainCountdownIntervalTimerId);
-                    alert("⏳ App use na hone ki waja se auto logout executed securely!");
+                    alert("⏳ Session auto logout executed securely!");
                     terminateUserSessionState();
                 }
             }
@@ -415,7 +401,7 @@
         actionBtn.disabled = true; let currentTimer = seconds;
         const countdownInt = setInterval(() => {
             if (currentTimer <= 0) {
-                clearInterval(countdownInt); actionBtn.disabled = false; actionBtn.innerText = "Login Securely & Sync Data";
+                clearInterval(countdownInt); actionBtn.disabled = false; actionBtn.innerText = "Login";
                 warningBox.style.display = "none"; localStorage.removeItem("islam_co_freeze_timestamp"); localStorage.removeItem("islam_co_freeze_duration");
             } else {
                 actionBtn.innerText = `System Frozen (${currentTimer}s)`; warningBox.style.display = "block";
@@ -423,8 +409,7 @@
             }
         }, 1000);
     }
-
-    function validateIdentityAccessGateway() {
+        function validateIdentityAccessGateway() {
         if (checkAndApplySecurityLockoutState()) return;
         const warningBox = document.getElementById("loginFeedbackStatusDisplayBox");
         const errorLbl = document.getElementById("lblSecurityMainErrorString");
@@ -433,13 +418,47 @@
         const passValue = document.getElementById("nodeAuthPassword").value.trim();
 
         if (!userValue || !passValue) return alert("Please enter username and password.");
+        
         actionBtn.innerText = "Login please wait..."; actionBtn.disabled = true; warningBox.style.display = "none";
 
+        // High-Speed Local Cache Validation Framework
+        if (cachedSystemMasterDataPayload && cachedSystemMasterDataPayload.users) {
+            let match = cachedSystemMasterDataPayload.users.find(u => u.username.toLowerCase() === userValue.toLowerCase() && u.password.toString() === passValue);
+            if (match) {
+                if (match.status === "Blocked") {
+                    actionBtn.innerText = "Login"; actionBtn.disabled = false;
+                    warningBox.style.display = "block"; errorLbl.innerText = "Admin Sy rabta kre";
+                    return alert("❌ Admin Sy rabta kre");
+                }
+                wrongAttemptsLocalCount = 0; authenticatedUserBookerString = match.bookerName || userValue;
+                localStorage.setItem("islam_co_token_secure_2026", authenticatedUserBookerString);
+                
+                routeInterfaceToWorkspaceView();
+                startInactivityMonitoringEngine();
+                
+                // Re-download fresh master data packet in background on every relogin
+                setTimeout(() => {
+                    executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
+                        if (incomingPayload && incomingPayload.status === "success") {
+                            cachedSystemMasterDataPayload = incomingPayload; 
+                            localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
+                            renderSystemPromoMarqueeComponent(); 
+                            buildProductDropdownMenuOptions();
+                        }
+                    });
+                }, 50);
+                
+                actionBtn.innerText = "Login"; actionBtn.disabled = false;
+                return;
+            }
+        }
+
+        // Live Server Authentication Fallback
         executeCrossDomainJsonpTransaction({ action: "loginAuthValidation", user: userValue, pass: passValue, deviceId: "Enterprise-Core" }, function(response) {
             let statusResult = response ? response.status : "failed";
             
             if (statusResult === "blocked" || response?.userStatus === "Blocked") {
-                actionBtn.innerText = "Login Securely & Sync Data"; actionBtn.disabled = false;
+                actionBtn.innerText = "Login"; actionBtn.disabled = false;
                 warningBox.style.display = "block"; errorLbl.innerText = "Admin Sy rabta kre";
                 return alert("❌ Admin Sy rabta kre");
             }
@@ -448,22 +467,23 @@
                 wrongAttemptsLocalCount = 0; authenticatedUserBookerString = response.bookerName || userValue;
                 localStorage.setItem("islam_co_token_secure_2026", authenticatedUserBookerString);
                 
-                localStorage.removeItem("islam_co_master_cache_2026");
-                cachedSystemMasterDataPayload = null;
+                routeInterfaceToWorkspaceView();
+                startInactivityMonitoringEngine();
 
-                executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
-                    if (incomingPayload && incomingPayload.status === "success") {
-                        cachedSystemMasterDataPayload = incomingPayload; 
-                        localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
-                        renderSystemPromoMarqueeComponent(); 
-                        buildProductDropdownMenuOptions();
-                    }
-                    actionBtn.innerText = "Login Securely & Sync Data"; actionBtn.disabled = false; 
-                    routeInterfaceToWorkspaceView();
-                    startInactivityMonitoringEngine();
-                });
+                setTimeout(() => {
+                    executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
+                        if (incomingPayload && incomingPayload.status === "success") {
+                            cachedSystemMasterDataPayload = incomingPayload; 
+                            localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
+                            renderSystemPromoMarqueeComponent(); 
+                            buildProductDropdownMenuOptions();
+                        }
+                    });
+                }, 50);
+
+                actionBtn.innerText = "Login"; actionBtn.disabled = false; 
             } else {
-                actionBtn.innerText = "Login Securely & Sync Data"; actionBtn.disabled = false;
+                actionBtn.innerText = "Login"; actionBtn.disabled = false;
                 if (statusResult === "unknown_user" || response?.isUnknown === true || response?.message === "User not found") {
                     localStorage.setItem("islam_co_freeze_timestamp", Date.now().toString());
                     localStorage.setItem("islam_co_freeze_duration", "600000"); 
@@ -571,7 +591,7 @@
     function launchRateCatalogModalWindow() {
         const pane = document.getElementById("containerRateCatalogModalInjectTarget"); pane.innerHTML = "";
         cachedSystemMasterDataPayload?.rates?.forEach(item => {
-            pane.innerHTML += `<div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding:5px; font-size:11px; border-bottom:1px solid #e2e8f0;"><div>${item.packName}</div><div>${item.rate}</div><div>${item.discount}</div><div>${item.filer}</div></div>`;
+            pane.innerHTML += `<div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding:5px; font-size:11px; border-bottom:1px solid #e2e8f0;"><div>${item.packName}</div><div>${formatNumberWithCommas(item.rate)}</div><div>${formatNumberWithCommas(item.discount)}</div><div>${formatNumberWithCommas(item.filer)}</div></div>`;
         });
         document.getElementById("modalOverlayRateCatalog").style.display = "flex";
     }
@@ -583,13 +603,12 @@
         cachedSystemMasterDataPayload?.rates?.forEach(item => { menuNode.innerHTML += `<option value="${escape(item.packName)}|${item.rate}|${item.discount}|${item.filer}">${item.packName}</option>`; });
     }
 
-    // Modal Trigger Actions Interceptor
     function interceptProductSelectionEvent() {
         const packedString = document.getElementById("selectDynamicProductInventoryCatalog").value; if (!packedString) return;
         const parts = packedString.split("|");
         activeInterceptionItemContext = { packName: unescape(parts[0]), normalRate: parseFloat(parts[1]), sheetDiscount: parseFloat(parts[2]), filerRate: parseFloat(parts[3]) };
         document.getElementById("stepHeaderProductName").innerText = activeInterceptionItemContext.packName;
-        document.getElementById("stepLabelProductRates").innerText = `Normal Rate: Rs.${activeInterceptionItemContext.normalRate} / Filer Rate: Rs.${activeInterceptionItemContext.filerRate}`;
+        document.getElementById("stepLabelProductRates").innerText = `Normal Rate: Rs.${formatNumberWithCommas(activeInterceptionItemContext.normalRate)} / Filer Rate: Rs.${formatNumberWithCommas(activeInterceptionItemContext.filerRate)}`;
         document.getElementById("inputStepperManualValue").value = "1"; document.getElementById("modalOverlayQuantityStepper").style.display = "flex";
     }
     function closeQuantityStepperModalWindow() { document.getElementById("modalOverlayQuantityStepper").style.display = "none"; document.getElementById("selectDynamicProductInventoryCatalog").value = ""; }
@@ -618,14 +637,14 @@
             let disc = (taxRule === "Filer") ? 0 : row.sheetDiscount;
             let gross = rate * row.quantity; let discLess = disc * row.quantity; let net = gross - discLess;
             qtyTotal += row.quantity; grossTotal += gross; discTotal += discLess; netTotal += net;
-            if(cartTarget) cartTarget.innerHTML += `<tr><td><span class="product-name-single-line-clamp" title="${row.packName}">${row.packName}</span></td><td>${row.quantity} Pcs</td><td>Rs. ${discLess}</td><td><strong>Rs. ${net}</strong></td><td style="text-align: center;"><button class="btn-ui-action" style="background:#ef4444; height:22px; font-size:10px; padding:0 6px;" onclick="purgeTargetBasketItemRow(${rIdx})">Remove</button></td></tr>`;
-            if(billTarget) billTarget.innerHTML += `<tr><td>${row.packName}</td><td style="text-align: center;">${row.quantity}</td><td style="text-align: right;">${rate}</td><td style="text-align: right;">${gross}</td><td style="text-align: right;">${discLess > 0 ? discLess : '-'}</td><td style="text-align: right;">${net}</td></tr>`;
+            if(cartTarget) cartTarget.innerHTML += `<tr><td><span class="product-name-single-line-clamp" title="${row.packName}">${row.packName}</span></td><td>${row.quantity} Pcs</td><td>Rs. ${formatNumberWithCommas(discLess)}</td><td><strong>Rs. ${formatNumberWithCommas(net)}</strong></td><td style="text-align: center;"><button class="btn-ui-action" style="background:#ef4444; height:22px; font-size:10px; padding:0 6px;" onclick="purgeTargetBasketItemRow(${rIdx})">Remove</button></td></tr>`;
+            if(billTarget) billTarget.innerHTML += `<tr><td>${row.packName}</td><td style="text-align: center;">${row.quantity}</td><td style="text-align: right;">${formatNumberWithCommas(rate)}</td><td style="text-align: right;">${formatNumberWithCommas(gross)}</td><td style="text-align: right;">${discLess > 0 ? formatNumberWithCommas(discLess) : '-'}</td><td style="text-align: right;">${formatNumberWithCommas(net)}</td></tr>`;
         });
         if(localActiveSalesBasketArray.length > 0 && billTarget) billTarget.innerHTML += `<tr style="font-weight: bold; background: #ffffff;"><td>Total</td><td style="text-align: center;">${qtyTotal}</td><td colspan="4"></td></tr>`;
         syncRealTimeToLiveBillBlueprint();
-        if(document.getElementById("billSummaryGrossAmount")) document.getElementById("billSummaryGrossAmount").innerText = grossTotal;
-        if(document.getElementById("billSummaryTotalDiscount")) document.getElementById("billSummaryTotalDiscount").innerText = discTotal;
-        if(document.getElementById("billSummaryGrandNet")) document.getElementById("billSummaryGrandNet").innerText = netTotal;
+        if(document.getElementById("billSummaryGrossAmount")) document.getElementById("billSummaryGrossAmount").innerText = formatNumberWithCommas(grossTotal);
+        if(document.getElementById("billSummaryTotalDiscount")) document.getElementById("billSummaryTotalDiscount").innerText = formatNumberWithCommas(discTotal);
+        if(document.getElementById("billSummaryGrandNet")) document.getElementById("billSummaryGrandNet").innerText = formatNumberWithCommas(netTotal);
     }
 
     function purgeTargetBasketItemRow(index) { localActiveSalesBasketArray.splice(index, 1); executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory(); }
@@ -680,7 +699,7 @@
                 let gross = rate * item.quantity;
                 let totalDisc = disc * item.quantity;
                 let net = gross - totalDisc;
-                msg += `• *${item.packName}*\n   Qty: ${item.quantity} | Rate: Rs.${rate} | Disc: Rs.${totalDisc} | Amt: Rs.${net}\n`;
+                msg += `• *${item.packName}*\n   Qty: ${item.quantity} | Rate: Rs.${formatNumberWithCommas(rate)} | Disc: Rs.${formatNumberWithCommas(totalDisc)} | Amt: Rs.${formatNumberWithCommas(net)}\n`;
             });
             
             msg += `------------------------------------\n`;
@@ -702,8 +721,8 @@
         const fromDate = document.getElementById("historyFilterFromDate").value; const toDate = document.getElementById("historyFilterToDate").value;
         const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); let allLogs = rawLogs ? JSON.parse(rawLogs) : [];
         let filteredLogs = allLogs.filter(l => l.date >= fromDate && l.date <= toDate);
-        let aggSum = 0; filteredLogs.forEach(log => { aggSum += parseFloat(log.totalNetBill || 0); });
-        document.getElementById("lblRangeHistoryTotalAmount").innerText = `Total Amount In Selected Period: Rs. ${aggSum.toLocaleString()}`;
+        let aggSum = 0; filteredLogs.forEach(log => { aggSum += parseFloat(log.totalNetBill.replace(/,/g, '') || 0); });
+        document.getElementById("lblRangeHistoryTotalAmount").innerText = `Total Amount In Selected Period: Rs. ${formatNumberWithCommas(aggSum)}`;
 
         const pickContainer = document.getElementById("historyPickListContainer");
         if(filteredLogs.length === 0) { pickContainer.innerHTML = `<div style="text-align:center; padding:20px; color:#64748b;">No history records found.</div>`; } 
@@ -723,7 +742,7 @@
         const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); if(!rawLogs) return;
         let log = JSON.parse(rawLogs).find(l => l.invoiceId === invId);
         if(log) {
-            localActiveSalesBasketArray = log.basketItems; document.getElementById("inputClientRegistrySearchKey").value = log.outletId; document.getElementById("fieldUiOutletName").value = log.outletName; document.getElementById("fieldUiOutletAddress").value = log.outletAddress; document.getElementById("fieldUiContactNumber").value = log.contactNumber; document.getElementById("fieldUiOwnerName").value = log.ownerName; document.getElementById("selectGlobalTaxAppPolicy").value = log.taxPolicy; stateInvoiceRandomKey = log.invoiceId; stateDispatchRandomKey = log.dispatchId; stateDriverRandomString = log.driverName; stateVehRandomString = log.vehicleNo; statePjpRandomString = log.pjpCode; executeCalculationsPipeline(); closeHistorySystemModalWindow(); saveCurrentBillStateToLocalMemory(); alert(`📄 Invoice #${invId} loaded successfully!`);
+            localActiveSalesBasketArray = log.basketItems; document.getElementById("inputClientRegistrySearchKey").value = log.outletId; document.getElementById("fieldUiOutletName").value = log.outletName; document.getElementById("fieldUiOutletAddress").value = log.outletAddress; document.getElementById("fieldUiContactNumber").value = log.contactNumber; document.getElementById("fieldUiOwnerName").value = log.ownerName; document.getElementById("selectGlobalTaxAppPolicy").value = log.taxPolicy; stateInvoiceRandomKey = log.invoiceId; stateDispatchRandomKey = log.dispatchId; stateDriverRandomString = log.driverName; stateVehRandomString = log.vehicleNo; statePjpCode = log.pjpCode; executeCalculationsPipeline(); closeHistorySystemModalWindow(); saveCurrentBillStateToLocalMemory(); alert(`📄 Invoice #${invId} loaded successfully!`);
         }
     }
 
