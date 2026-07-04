@@ -115,12 +115,12 @@
             <div class="auth-card-body">
                 <div style="margin-bottom:12px;">
                     <label class="field-label-node">User Name</label>
-                    <input type="text" id="nodeAuthUsername" class="input-control-node" placeholder="Enter registration key...">
+                    <input type="text" id="nodeAuthUsername" class="input-control-node" placeholder="Enter User Name...">
                 </div>
                 <div style="margin-bottom:16px;">
                     <label class="field-label-node">Password</label>
                     <div class="password-input-wrapper">
-                        <input type="password" id="nodeAuthPassword" class="input-control-node" placeholder="Enter access digits...">
+                        <input type="password" id="nodeAuthPassword" class="input-control-node" placeholder="User Password...">
                         <span class="password-toggle-eye" id="togglePasswordVisibilityIcon" onclick="togglePasswordViewField()">👁️</span>
                     </div>
                 </div>
@@ -146,12 +146,12 @@
 
         <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
-                <h3>Customer Panel Management</h3>
-                <span class="panel-corner-trash-basket" onclick="wipeCustomerLayoutFields()">🗑️ Clear fields</span>
+                <h3>Customer Search Panel </h3>
+                <span class="panel-corner-trash-basket" onclick="wipeCustomerLayoutFields()">🗑️ Clear Search</span>
             </div>
             <div class="grid-inline-row-panel">
                 <div class="node-block-wrapper" style="width: 120px; flex-shrink: 0;">
-                    <label class="field-label-node">Route Mode</label>
+                    <label class="field-label-node">Select Mode</label>
                     <select id="selectRouteModeOption" class="input-control-node" style="padding:6px; font-size:12px;" onchange="adjustCustomerSearchState()">
                         <option value="System">System ID</option>
                         <option value="Manual">Manual ID</option>
@@ -189,10 +189,10 @@
         </div>
         <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
-                <h3>Tax Configurations</h3>
+                <h3>Tax Status</h3>
             </div>
             <div style="margin-bottom: 10px;">
-                <label class="field-label-node">Tax Status Framework</label>
+                <label class="field-label-node">Tax Status Selection</label>
                 <select id="selectGlobalTaxAppPolicy" class="input-control-node" onchange="executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();">
                     <option value="Normal" selected>Normal Rate</option>
                     <option value="Filer">Filer Rate</option>
@@ -203,7 +203,7 @@
 
         <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
-                <h3>Products Matrix Board</h3>
+                <h3>Products Add to Cart</h3>
             </div>
             <div style="margin-bottom: 10px;">
                 <select id="selectDynamicProductInventoryCatalog" class="input-control-node" onchange="interceptProductSelectionEvent()"></select>
@@ -302,7 +302,7 @@
 
         <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
-                <h3>Transmit Portal Gateway</h3>
+                <h3> Send Order Whatsapp</h3>
             </div>
             <div style="margin-bottom:10px;">
                 <select id="selectWhatsAppStaffMemberNode" class="input-control-node">
