@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#1e40af">
-    <title>ISLAM AND CO-Booker app</title>
+    <title>ISLAM AND CO - Booker Portal</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
@@ -118,7 +118,7 @@
         <div class="secure-auth-card">
             <div class="auth-brand-header">
                 <h1>ISLAM AND CO.</h1>
-                <p>Booker Login </p>
+                <p>Booker Login Access Gate</p>
             </div>
             <div class="auth-card-body">
                 <div style="margin-bottom:12px;">
@@ -155,12 +155,12 @@
 
         <div class="workspace-card-section">
             <div class="workspace-card-header-wrapper">
-                <h3>Customer Search Panel </h3>
+                <h3>Customer Panel Management</h3>
                 <span class="panel-corner-trash-basket" onclick="wipeCustomerLayoutFields()">🗑️ Clear fields</span>
             </div>
             <div class="grid-inline-row-panel">
                 <div class="node-block-wrapper" style="width: 120px; flex-shrink: 0;">
-                    <label class="field-label-node">Select Mode</label>
+                    <label class="field-label-node">Route Mode</label>
                     <select id="selectRouteModeOption" class="input-control-node" style="padding:6px; font-size:12px;" onchange="adjustCustomerSearchState()">
                         <option value="System">System ID</option>
                         <option value="Manual">Manual ID</option>
@@ -183,15 +183,15 @@
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper"><h3>Tax Status</h3></div>
+            <div class="workspace-card-header-wrapper"><h3>Tax Configurations</h3></div>
             <div style="margin-bottom: 10px;">
-                <label class="field-label-node">Tax Status Selection</label>
+                <label class="field-label-node">Tax Status Framework</label>
                 <select id="selectGlobalTaxAppPolicy" class="input-control-node" onchange="executeCalculationsPipeline(); saveCurrentBillStateToLocalMemory();">
                     <option value="Normal" selected>Normal Rate</option>
                     <option value="Filer">Filer Rate</option>
                 </select>
             </div>
-            <button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="launchRateCatalogModalWindow()">📋 Open Rate List </button>
+            <button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="launchRateCatalogModalWindow()">📋 Open Rate List Sheet</button>
         </div>
 
         <div class="workspace-card-section">
@@ -219,7 +219,7 @@
                 </div>
                 <div class="blueprint-txt-9x" style="text-align: center; width:100%; margin: 1px 0;" id="billTimestampNode">-</div>
                 <div class="blueprint-txt-9x" style="line-height: 1.2; margin-bottom: 4px; text-transform: uppercase !important;">
-                    <strong>Distributor CNIC :</strong> 37202-4977404-3<br><strong>Distributor NTN :</strong> A-48299<br><strong>Distributor STRN :</strong> 9000<br><strong>Distributor Address :</strong> CHOA SAIDAN SHAH, CHAKWAL
+                    <strong>DISTRIBUTOR CNIC :</strong> 37202-4977404-3<br><strong>DISTRIBUTOR NTN :</strong> A-48299<br><strong>DISTRIBUTOR STRN :</strong> 9000<br><strong>DISTRIBUTOR ADDRESS :</strong> CHOA SAIDAN SHAH, CHAKWAL
                 </div>
                 <div style="display:flex; gap:30px; margin: 2px 0; text-transform: uppercase !important;" class="blueprint-txt-9x"><div><strong>DISPATCH#</strong> <span id="billDispatchRandomKey">-</span></div><div><strong>INVOICE#</strong> <span id="billInvoiceRandomKey">-</span></div></div>
                 <div style="width:100%; height:0.5px; background:#000000; margin: 4px 0;"></div>
@@ -243,22 +243,22 @@
                 </table>
 
                 <div class="bill-totals-alignment-block" style="text-transform: uppercase !important;">
-                    <div><strong>Gross Amount:</strong><span class="bill-normal-value-container" id="billSummaryGrossAmount">0</span></div>
-                    <div><strong>Promo:</strong><span class="bill-normal-value-container" id="billSummaryPromoAmount">0</span></div>
-                    <div><strong>Discount:</strong><span class="bill-normal-value-container" id="billSummaryTotalDiscount">0</span></div>
-                    <div><strong>Advance income tax(%):</strong><span class="bill-normal-value-container" id="billSummaryAdvanceTax">0</span></div>
+                    <div><strong>GROSS AMOUNT:</strong><span class="bill-normal-value-container" id="billSummaryGrossAmount">0</span></div>
+                    <div><strong>PROMO:</strong><span class="bill-normal-value-container" id="billSummaryPromoAmount">0</span></div>
+                    <div><strong>DISCOUNT:</strong><span class="bill-normal-value-container" id="billSummaryTotalDiscount">0</span></div>
+                    <div><strong>ADVANCE INCOME TAX ():</strong><span class="bill-normal-value-container" id="billSummaryAdvanceTax">0</span></div>
                     <div><strong>NET AMOUNT:</strong><span class="bill-grand-value-container" id="billSummaryGrandNet">0</span></div>
                 </div>
 
                 <div class="bill-horizontal-logistics-strip">
-                    <div><strong>User:</strong><span id="billLogisticsUser">Shujaat Raja</span></div><div><strong>Booker:</strong><span id="billLogisticsBooker">-</span></div><div><strong>Driver:</strong><span id="billLogisticsDriver">-</span></div><div><strong>Veh#:</strong><span id="billLogisticsVeh">-</span></div><div><strong>PJP:</strong><span id="billLogisticsPjp">-</span></div><div style="flex-grow: 1; text-align: right;"><strong>Expected Delivery Date:</strong><span id="billLogisticsDeliveryDate">-</span></div>
+                    <div><strong>USER:</strong><span id="billLogisticsUser">SHUJAAT RAJA</span></div><div><strong>BOOKER:</strong><span id="billLogisticsBooker">-</span></div><div><strong>DRIVER:</strong><span id="billLogisticsDriver">-</span></div><div><strong>VEH#:</strong><span id="billLogisticsVeh">-</span></div><div><strong>PJP:</strong><span id="billLogisticsPjp">-</span></div><div style="flex-grow: 1; text-align: right;"><strong>EXPECTED DELIVERY:</strong><span id="billLogisticsDeliveryDate">-</span></div>
                 </div>
             </div>
             <br><button class="btn-ui-action" style="background:#0284c7; width:100%; height:35px;" onclick="downloadBillSnapshotJpgFile()">Download Bill Snapshot Image 📸</button>
         </div>
 
         <div class="workspace-card-section">
-            <div class="workspace-card-header-wrapper"><h3>SEND ORDER WHATSAPP</h3></div>
+            <div class="workspace-card-header-wrapper"><h3>Transmit Portal Gateway</h3></div>
             <div style="margin-bottom:10px;">
                 <select id="selectWhatsAppStaffMemberNode" class="input-control-node">
                     <option value="923465846781">👤 Asiam Hussain</option><option value="923415011140">👤 Adnan Hassan</option><option value="923061645603">👤 Saqib Abbas</option><option value="923461649698">👤 Arslan Sajid</option><option value="923150564149">👤 Asim Raza</option><option value="923105714429">👤 Naqeeb Ur Rehman</option>
