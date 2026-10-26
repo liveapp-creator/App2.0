@@ -37,6 +37,10 @@
 
         .session-runtime-dashboard-strip { background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; font-weight: 700; border-radius: 4px; margin-bottom: 4px !important; }
         .logout-action-btn { background: #ef4444; color: white; border: none; padding: 3px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; font-weight: 700; }
+        .refresh-master-data-btn { background:#0f766e; color:#fff; border:1px solid #0d9488; padding:5px 10px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:800; white-space:nowrap; }
+        .refresh-master-data-btn:disabled { opacity:.65; cursor:wait; }
+        @media(max-width:560px) { .session-runtime-dashboard-strip { gap:6px; flex-wrap:wrap; } .refresh-master-data-btn,.logout-action-btn { padding:6px 8px; } }
+
         .app-main-title-theme-banner { background: var(--brand-blue); color: white; text-align: center; padding: 10px; border-radius: 4px; margin-bottom: 10px !important; }
         .app-main-title-theme-banner h2 { font-size: 28px; font-weight: 900; letter-spacing: 0.5px; }
         .live-now-badge { display: inline-block; background: #10b981; color: white; padding: 1px 8px; border-radius: 20px; font-size: 10px; font-weight: 800; margin-top: 3px; }
@@ -70,7 +74,7 @@
         .quantity-stepper-input { width: 70px; text-align: center; font-size: 18px; font-weight: 800; height: 38px; border: 1px solid var(--border-elegant); border-radius: 4px; }
         .btn-ui-action { background: var(--brand-blue); color: white; border: none; padding: 0 14px; height: 35px; font-size: 12px; font-weight: 700; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
 
-        .excel-invoice-blueprint-viewport { background: #ffffff !important; color: #000000 !important; width: 100%; max-width: 600px; padding: 15px; margin: 0 auto; border: 1px solid #000000 !important; line-height: 1.2; box-sizing: border-box; overflow: hidden; }
+        .excel-invoice-blueprint-viewport { background: #ffffff !important; color: #000000 !important; width: 100%; max-width: 600px; padding: 6px; margin: 0 auto; border: 1px solid #000000 !important; line-height: 1.2; box-sizing: border-box; overflow: hidden; }
         .excel-invoice-blueprint-viewport * { font-family: var(--excel-font) !important; color: #000000 !important; box-sizing: border-box; }
         .blueprint-txt-9x { font-size: 9px !important; color: #000000 !important; }
         .blueprint-txt-12x { font-size: 12px !important; color: #000000 !important; }
@@ -99,6 +103,75 @@
         
         .countdown-security-footer-box { background: #fee2e2; border: 1px solid #fca5a5; border-radius: 6px; padding: 10px; text-align: center; margin-top: 15px; color: #991b1b; font-weight: 800; font-size: 13px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         .shujaat-footer-branding { text-align: center; padding: 10px 0 20px 0; font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px; width: 100%; }
+
+        /* Login-only visual upgrade: leaves the sales workspace styling untouched */
+        .secure-auth-card {
+            max-width: 440px; margin: clamp(28px, 8vh, 76px) auto 20px;
+            border: 1px solid rgba(148,163,184,.28); border-radius: 22px;
+            box-shadow: 0 24px 70px rgba(15,23,42,.16), 0 4px 14px rgba(30,64,175,.08);
+            background: rgba(255,255,255,.97); backdrop-filter: blur(14px);
+        }
+        #viewPanelLogin { min-height: calc(100vh - 48px); }
+        #viewPanelLogin .auth-brand-header {
+            position:relative; overflow:hidden; padding:34px 24px 30px;
+            background: radial-gradient(circle at 15% 10%, rgba(96,165,250,.55), transparent 35%),
+                        linear-gradient(135deg,#0f172a 0%,#1d4ed8 58%,#0891b2 100%);
+        }
+        #viewPanelLogin .auth-brand-header:before,
+        #viewPanelLogin .auth-brand-header:after {
+            content:""; position:absolute; border:1px solid rgba(255,255,255,.16);
+            border-radius:50%; pointer-events:none;
+        }
+        #viewPanelLogin .auth-brand-header:before { width:190px;height:190px;right:-75px;top:-100px; }
+        #viewPanelLogin .auth-brand-header:after { width:120px;height:120px;left:-55px;bottom:-80px; }
+        #viewPanelLogin .auth-brand-header h1 { font-size:clamp(25px,6vw,31px); letter-spacing:1.4px; position:relative; }
+        #viewPanelLogin .auth-brand-header p { color:#dbeafe; font-size:11px; letter-spacing:2px; margin-top:9px; position:relative; }
+        #viewPanelLogin .auth-card-body { padding:28px clamp(20px,6vw,34px) 32px; }
+        #viewPanelLogin .field-label-node { color:#334155; font-size:11px; letter-spacing:.8px; }
+        #viewPanelLogin .input-control-node {
+            height:48px; padding:0 14px; border:1px solid #dbe3ef; border-radius:12px;
+            background:#f8fafc; font-size:15px; transition:border-color .2s,box-shadow .2s,background .2s;
+        }
+        #viewPanelLogin .input-control-node:focus { border-color:#2563eb; box-shadow:0 0 0 4px rgba(37,99,235,.12); background:#fff; }
+        #viewPanelLogin .password-input-wrapper .input-control-node { padding-right:45px; }
+        #viewPanelLogin .password-toggle-eye { right:14px; font-size:18px; }
+        #btnAuthActionTrigger {
+            position:relative; overflow:hidden; border-radius:12px !important; height:49px !important;
+            font-size:15px !important; letter-spacing:.5px; font-weight:800 !important;
+            background:linear-gradient(120deg,#1d4ed8,#2563eb,#0891b2) !important;
+            box-shadow:0 8px 18px rgba(37,99,235,.23); transition:transform .18s,box-shadow .18s;
+        }
+        #btnAuthActionTrigger:not(:disabled):active { transform:scale(.985); }
+        #btnAuthActionTrigger:disabled { opacity:.82; cursor:wait; }
+        #viewPanelLogin .shujaat-footer-branding { padding-top:14px; letter-spacing:1.5px; }
+        #loginLoadingOverlay {
+            display:none; position:fixed; inset:0; z-index:10001; align-items:center; justify-content:center;
+            padding:24px; background:rgba(8,18,40,.55); backdrop-filter:blur(7px);
+        }
+        #loginLoadingOverlay.show { display:flex; }
+        .login-loading-card { width:min(300px,100%); padding:28px 24px; text-align:center; border-radius:22px;
+            background:#fff; box-shadow:0 25px 80px rgba(0,0,0,.25); color:#0f172a; }
+        .login-spinner { width:48px;height:48px;margin:0 auto 16px;border-radius:50%;
+            border:4px solid #dbeafe;border-top-color:#2563eb;animation:loginSpin .75s linear infinite; }
+        .login-loading-card strong { display:block;font-size:17px; }
+        .login-loading-card span { display:block;margin-top:7px;font-size:12px;color:#64748b; }
+        @keyframes loginSpin { to { transform:rotate(360deg); } }
+        #welcomeCelebrationOverlay { position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;
+            padding:22px;background:rgba(15,23,42,.24);pointer-events:none; }
+        #welcomeCelebrationOverlay.show { display:flex; }
+        .welcome-celebration-card { text-align:center;padding:26px 32px;border-radius:24px;background:rgba(255,255,255,.96);
+            box-shadow:0 20px 65px rgba(15,23,42,.22);animation:welcomePop .5s cubic-bezier(.2,.8,.2,1) both; }
+        .welcome-celebration-card .welcome-icon { font-size:38px; }
+        .welcome-celebration-card h2 { margin-top:8px;color:#1d4ed8;font-size:25px; }
+        .welcome-celebration-card p { margin-top:6px;color:#475569;font-size:14px; }
+        .login-flower-particle { position:fixed;top:-35px;z-index:10002;pointer-events:none;animation:flowerFall linear forwards; }
+        @keyframes flowerFall { to { transform:translate3d(var(--drift),110vh,0) rotate(620deg); opacity:.15; } }
+        @keyframes welcomePop { from { transform:translateY(18px) scale(.88);opacity:0; } to { transform:translateY(0) scale(1);opacity:1; } }
+        @media(max-width:480px) {
+            .secure-auth-card { margin:30px auto 16px; border-radius:19px; }
+            #viewPanelLogin .auth-brand-header { padding:30px 18px 26px; }
+        }
+
     </style>
 </head>
 <body>
@@ -139,7 +212,10 @@
         <div class="session-runtime-dashboard-strip">
             <div>Welcome Booker: <span id="lblActiveRuntimeBookerName">-</span></div>
             <div id="lblLiveClockDisplay">🕒 System booting...</div>
-            <button class="logout-action-btn" onclick="terminateUserSessionState()">Logout Securely 🔒</button>
+            <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
+                <button id="btnRefreshMasterData" type="button" class="refresh-master-data-btn" onclick="refreshMasterDataNow()" title="Google Sheet se latest outlets, rates aur products load karein">↻ Update Data</button>
+                <button class="logout-action-btn" type="button" onclick="terminateUserSessionState()">Logout Securely 🔒</button>
+            </div>
         </div> 
 
         <div class="app-main-title-theme-banner">
@@ -315,6 +391,12 @@
         </div>
     </div>
 </div>
+<div id="loginLoadingOverlay" aria-live="polite" aria-label="Signing in">
+    <div class="login-loading-card"><div class="login-spinner"></div><strong>Signing you in…</strong><span>Preparing your sales workspace</span></div>
+</div>
+<div id="welcomeCelebrationOverlay" aria-live="polite">
+    <div class="welcome-celebration-card"><div class="welcome-icon">🌸✨🌼</div><h2 id="welcomeCelebrationName">Khush Aamdeed!</h2><p>Islam &amp; Co. Sales Portal</p></div>
+</div>
 <script>
     const DEPLOYED_GAS_API_ENDPOINT = "https://script.google.com/macros/s/AKfycbzxtpaK8kVOnHJ_ccEtbOSQLmJqJeT1kUp2HAYaBxchNEqfiNK-v7DjSiNtrR4IXbEdMw/exec";
 
@@ -354,7 +436,17 @@
         document.getElementById("historyFilterToDate").value = new Date().toISOString().split('T')[0];
 
         const cache = localStorage.getItem("islam_co_master_cache_2026");
-        if (cache) { cachedSystemMasterDataPayload = JSON.parse(cache); renderSystemPromoMarqueeComponent(); buildProductDropdownMenuOptions(); }
+        if (cache) {
+            try {
+                cachedSystemMasterDataPayload = JSON.parse(cache);
+                renderSystemPromoMarqueeComponent();
+                buildProductDropdownMenuOptions();
+            } catch (cacheError) {
+                console.warn("Saved master cache is unreadable; refreshing from server after login.", cacheError);
+                cachedSystemMasterDataPayload = null;
+                localStorage.removeItem("islam_co_master_cache_2026");
+            }
+        }
     });
 
     function formatNumberWithCommas(num) {
@@ -409,98 +501,177 @@
             }
         }, 1000);
     }
-        function validateIdentityAccessGateway() {
+    function setLoginBusy(isBusy, message) {
+        const btn = document.getElementById("btnAuthActionTrigger");
+        btn.disabled = !!isBusy;
+        btn.innerText = isBusy ? (message || "Signing in…") : "Login";
+        document.getElementById("loginLoadingOverlay").classList.toggle("show", !!isBusy);
+    }
+
+    function validateIdentityAccessGateway() {
         if (checkAndApplySecurityLockoutState()) return;
         const warningBox = document.getElementById("loginFeedbackStatusDisplayBox");
         const errorLbl = document.getElementById("lblSecurityMainErrorString");
-        const actionBtn = document.getElementById("btnAuthActionTrigger");
         const userValue = document.getElementById("nodeAuthUsername").value.trim();
         const passValue = document.getElementById("nodeAuthPassword").value.trim();
 
-        if (!userValue || !passValue) return alert("Please enter username and password.");
-        
-        actionBtn.innerText = "Login please wait..."; actionBtn.disabled = true; warningBox.style.display = "none";
+        if (!userValue || !passValue) {
+            warningBox.style.display = "block";
+            errorLbl.innerText = "Please enter username and password.";
+            return;
+        }
+        warningBox.style.display = "none";
+        setLoginBusy(true);
 
-        // High-Speed Local Cache Validation Framework
-        if (cachedSystemMasterDataPayload && cachedSystemMasterDataPayload.users) {
-            let match = cachedSystemMasterDataPayload.users.find(u => u.username.toLowerCase() === userValue.toLowerCase() && u.password.toString() === passValue);
-            if (match) {
-                if (match.status === "Blocked") {
-                    actionBtn.innerText = "Login"; actionBtn.disabled = false;
-                    warningBox.style.display = "block"; errorLbl.innerText = "Admin Sy rabta kre";
-                    return alert("❌ Admin Sy rabta kre");
-                }
-                wrongAttemptsLocalCount = 0; authenticatedUserBookerString = match.bookerName || userValue;
-                localStorage.setItem("islam_co_token_secure_2026", authenticatedUserBookerString);
-                
-                routeInterfaceToWorkspaceView();
-                startInactivityMonitoringEngine();
-                
-                // Re-download fresh master data packet in background on every relogin
-                setTimeout(() => {
-                    executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
-                        if (incomingPayload && incomingPayload.status === "success") {
-                            cachedSystemMasterDataPayload = incomingPayload; 
+        const finishFailure = (message) => {
+            setLoginBusy(false);
+            warningBox.style.display = "block";
+            errorLbl.innerText = message;
+        };
+        const completeLogin = (bookerName) => {
+            wrongAttemptsLocalCount = 0;
+            authenticatedUserBookerString = bookerName || userValue;
+            localStorage.setItem("islam_co_token_secure_2026", authenticatedUserBookerString);
+            routeInterfaceToWorkspaceView();
+            startInactivityMonitoringEngine();
+            setLoginBusy(false);
+            // Refresh master data in the background. Cached data keeps the app usable during sync.
+            window.setTimeout(() => {
+                executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
+                    if (incomingPayload && incomingPayload.status === "success") {
+                        cachedSystemMasterDataPayload = incomingPayload;
+                        try {
                             localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
-                            renderSystemPromoMarqueeComponent(); 
-                            buildProductDropdownMenuOptions();
+                            localStorage.setItem("islam_co_master_cache_updated_at_2026", new Date().toISOString());
+                        } catch (storageError) {
+                            console.warn("Master data could not be fully cached on this device.", storageError);
                         }
-                    });
-                }, 50);
-                
-                actionBtn.innerText = "Login"; actionBtn.disabled = false;
+                        renderSystemPromoMarqueeComponent();
+                        buildProductDropdownMenuOptions();
+                    }
+                });
+            }, 0);
+        };
+
+        // Fast offline path: use the last saved master packet if it contains user records.
+        if (cachedSystemMasterDataPayload && Array.isArray(cachedSystemMasterDataPayload.users)) {
+            const match = cachedSystemMasterDataPayload.users.find(u =>
+                String(u.username || "").toLowerCase() === userValue.toLowerCase() &&
+                String(u.password ?? "") === passValue
+            );
+            if (match) {
+                if (String(match.status || "").toLowerCase() === "blocked") {
+                    finishFailure("Admin Sy rabta kre");
+                    return;
+                }
+                completeLogin(match.bookerName || userValue);
                 return;
             }
         }
 
-        // Live Server Authentication Fallback
-        executeCrossDomainJsonpTransaction({ action: "loginAuthValidation", user: userValue, pass: passValue, deviceId: "Enterprise-Core" }, function(response) {
-            let statusResult = response ? response.status : "failed";
-            
-            if (statusResult === "blocked" || response?.userStatus === "Blocked") {
-                actionBtn.innerText = "Login"; actionBtn.disabled = false;
-                warningBox.style.display = "block"; errorLbl.innerText = "Admin Sy rabta kre";
-                return alert("❌ Admin Sy rabta kre");
-            }
-
-            if (statusResult === "success") {
-                wrongAttemptsLocalCount = 0; authenticatedUserBookerString = response.bookerName || userValue;
-                localStorage.setItem("islam_co_token_secure_2026", authenticatedUserBookerString);
-                
-                routeInterfaceToWorkspaceView();
-                startInactivityMonitoringEngine();
-
-                setTimeout(() => {
-                    executeCrossDomainJsonpTransaction({ action: "fetchAllSyncDataPack" }, function(incomingPayload) {
-                        if (incomingPayload && incomingPayload.status === "success") {
-                            cachedSystemMasterDataPayload = incomingPayload; 
-                            localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
-                            renderSystemPromoMarqueeComponent(); 
-                            buildProductDropdownMenuOptions();
-                        }
-                    });
-                }, 50);
-
-                actionBtn.innerText = "Login"; actionBtn.disabled = false; 
-            } else {
-                actionBtn.innerText = "Login"; actionBtn.disabled = false;
+        // No valid offline match: validate with Apps Script.
+        executeCrossDomainJsonpTransaction(
+            { action: "loginAuthValidation", user: userValue, pass: passValue, deviceId: "Enterprise-Core" },
+            function(response) {
+                const statusResult = response ? response.status : "failed";
+                if (statusResult === "blocked" || response?.userStatus === "Blocked") {
+                    finishFailure("Admin Sy rabta kre");
+                    return;
+                }
+                if (statusResult === "success") {
+                    completeLogin(response.bookerName || userValue);
+                    return;
+                }
+                setLoginBusy(false);
                 if (statusResult === "unknown_user" || response?.isUnknown === true || response?.message === "User not found") {
                     localStorage.setItem("islam_co_freeze_timestamp", Date.now().toString());
-                    localStorage.setItem("islam_co_freeze_duration", "600000"); 
-                    activateFreezeUIState(600); alert("❌ Admin Sy rabta kre");
+                    localStorage.setItem("islam_co_freeze_duration", "600000");
+                    activateFreezeUIState(600);
+                    finishFailure("User not found. Admin se rabta karein.");
                 } else {
                     wrongAttemptsLocalCount++;
                     if (wrongAttemptsLocalCount >= 3) {
                         localStorage.setItem("islam_co_freeze_timestamp", Date.now().toString());
-                        localStorage.setItem("islam_co_freeze_duration", "180000"); 
-                        activateFreezeUIState(180); alert("❌ 3 Wrong attempts! Screen frozen for 3 minutes.");
+                        localStorage.setItem("islam_co_freeze_duration", "180000");
+                        activateFreezeUIState(180);
+                        finishFailure("3 wrong attempts. Login 3 minutes ke liye locked.");
                     } else {
-                        warningBox.style.display = "block"; errorLbl.innerText = `Wrong Password! (${3 - wrongAttemptsLocalCount} attempts left)`;
-                        alert(`⚠️ Password wrong! Only ${3 - wrongAttemptsLocalCount} attempts remaining.`);
+                        finishFailure(`Wrong password! ${3 - wrongAttemptsLocalCount} attempts left.`);
                     }
                 }
+            },
+            12000,
+            function() {
+                finishFailure("Server response slow ya unavailable hai. Internet check karke dobara try karein.");
             }
-        });
+        );
+    }
+
+    function refreshMasterDataNow() {
+        const button = document.getElementById("btnRefreshMasterData");
+        if (!button) return;
+        if (button.dataset.refreshing === "true") return;
+        const originalText = "↻ Update Data";
+        button.dataset.refreshing = "true";
+        button.disabled = true;
+        button.textContent = "⏳ Updating…";
+
+        executeCrossDomainJsonpTransaction(
+            { action: "fetchAllSyncDataPack" },
+            function(incomingPayload) {
+                if (!incomingPayload || incomingPayload.status !== "success") {
+                    button.textContent = "⚠ Update Failed";
+                    alert("Sheet se latest data nahi mila. Internet/Apps Script check karke dobara try karein. Purana saved data safe hai.");
+                    window.setTimeout(resetButton, 2200);
+                    return;
+                }
+                // Replace cache only after a successful server response; keep old cache safe on failure.
+                cachedSystemMasterDataPayload = incomingPayload;
+                try {
+                    localStorage.setItem("islam_co_master_cache_2026", JSON.stringify(incomingPayload));
+                    localStorage.setItem("islam_co_master_cache_updated_at_2026", new Date().toISOString());
+                } catch (storageError) {
+                    console.warn("Could not save refreshed master data to local storage.", storageError);
+                }
+                renderSystemPromoMarqueeComponent();
+                buildProductDropdownMenuOptions();
+                button.textContent = "✓ Data Updated";
+                window.setTimeout(resetButton, 2200);
+            },
+            15000,
+            function() {
+                button.textContent = "⚠ Update Failed";
+                alert("Sheet se response nahi aya. Purana data delete nahi hua; internet check karke dobara try karein.");
+                window.setTimeout(resetButton, 2200);
+            }
+        );
+
+        function resetButton() {
+            button.dataset.refreshing = "false";
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+
+    function launchWelcomeCelebration() {
+        const overlay = document.getElementById("welcomeCelebrationOverlay");
+        const nameNode = document.getElementById("welcomeCelebrationName");
+        nameNode.textContent = "Khush Aamdeed, " + (authenticatedUserBookerString || "Booker") + "!";
+        overlay.classList.add("show");
+        const flowerSet = ["🌸", "🌼", "🌺", "💮", "✨"];
+        for (let i = 0; i < 42; i++) {
+            const petal = document.createElement("span");
+            petal.className = "login-flower-particle";
+            petal.textContent = flowerSet[Math.floor(Math.random() * flowerSet.length)];
+            petal.style.left = (Math.random() * 100) + "vw";
+            petal.style.fontSize = (16 + Math.random() * 18) + "px";
+            petal.style.animationDuration = (2.4 + Math.random() * 2.2) + "s";
+            petal.style.animationDelay = (Math.random() * .8) + "s";
+            petal.style.setProperty("--drift", ((Math.random() - .5) * 180) + "px");
+            document.body.appendChild(petal);
+            window.setTimeout(() => petal.remove(), 5600);
+        }
+        window.setTimeout(() => overlay.classList.remove("show"), 2400);
     }
 
     function togglePasswordViewField() {
@@ -516,11 +687,36 @@
         }, 1000);
     }
 
-    function executeCrossDomainJsonpTransaction(paramsObj, runtimeCallback) {
-        const generatedCallbackUid = 'islam_co_cb_' + Math.random().toString(36).substr(2, 9);
-        window[generatedCallbackUid] = function(data) { if(runtimeCallback) runtimeCallback(data); document.body.removeChild(carrierScript); delete window[generatedCallbackUid]; };
-        const queryStringParams = new URLSearchParams({...paramsObj, callback: generatedCallbackUid}).toString();
-        const carrierScript = document.createElement('script'); carrierScript.src = `${DEPLOYED_GAS_API_ENDPOINT}?${queryStringParams}`; document.body.appendChild(carrierScript);
+    function executeCrossDomainJsonpTransaction(paramsObj, runtimeCallback, timeoutMs = 12000, errorCallback) {
+        const generatedCallbackUid = 'islam_co_cb_' + Math.random().toString(36).slice(2, 11);
+        const carrierScript = document.createElement('script');
+        let settled = false;
+        const cleanup = () => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(timeoutId);
+            carrierScript.onerror = null;
+            if (carrierScript.parentNode) carrierScript.parentNode.removeChild(carrierScript);
+            delete window[generatedCallbackUid];
+        };
+        window[generatedCallbackUid] = function(data) {
+            if (settled) return;
+            cleanup();
+            if (runtimeCallback) runtimeCallback(data);
+        };
+        const timeoutId = setTimeout(() => {
+            if (settled) return;
+            cleanup();
+            if (errorCallback) errorCallback();
+        }, timeoutMs);
+        carrierScript.onerror = () => {
+            if (settled) return;
+            cleanup();
+            if (errorCallback) errorCallback();
+        };
+        const queryStringParams = new URLSearchParams({ ...paramsObj, callback: generatedCallbackUid }).toString();
+        carrierScript.src = `${DEPLOYED_GAS_API_ENDPOINT}?${queryStringParams}`;
+        document.body.appendChild(carrierScript);
     }
 
     function routeInterfaceToWorkspaceView() {
@@ -533,6 +729,7 @@
         }
         document.getElementById("billInvoiceRandomKey").innerText = stateInvoiceRandomKey; document.getElementById("billDispatchRandomKey").innerText = stateDispatchRandomKey;
         setTimeout(function() { executeCalculationsPipeline(); }, 100);
+        launchWelcomeCelebration();
     }
 
     function renderSystemPromoMarqueeComponent() {
@@ -742,7 +939,7 @@
         const rawLogs = localStorage.getItem("islam_co_history_logs_v1"); if(!rawLogs) return;
         let log = JSON.parse(rawLogs).find(l => l.invoiceId === invId);
         if(log) {
-            localActiveSalesBasketArray = log.basketItems; document.getElementById("inputClientRegistrySearchKey").value = log.outletId; document.getElementById("fieldUiOutletName").value = log.outletName; document.getElementById("fieldUiOutletAddress").value = log.outletAddress; document.getElementById("fieldUiContactNumber").value = log.contactNumber; document.getElementById("fieldUiOwnerName").value = log.ownerName; document.getElementById("selectGlobalTaxAppPolicy").value = log.taxPolicy; stateInvoiceRandomKey = log.invoiceId; stateDispatchRandomKey = log.dispatchId; stateDriverRandomString = log.driverName; stateVehRandomString = log.vehicleNo; statePjpCode = log.pjpCode; executeCalculationsPipeline(); closeHistorySystemModalWindow(); saveCurrentBillStateToLocalMemory(); alert(`📄 Invoice #${invId} loaded successfully!`);
+            localActiveSalesBasketArray = log.basketItems; document.getElementById("inputClientRegistrySearchKey").value = log.outletId; document.getElementById("fieldUiOutletName").value = log.outletName; document.getElementById("fieldUiOutletAddress").value = log.outletAddress; document.getElementById("fieldUiContactNumber").value = log.contactNumber; document.getElementById("fieldUiOwnerName").value = log.ownerName; document.getElementById("selectGlobalTaxAppPolicy").value = log.taxPolicy; stateInvoiceRandomKey = log.invoiceId; stateDispatchRandomKey = log.dispatchId; stateDriverRandomString = log.driverName; stateVehRandomString = log.vehicleNo; statePjpRandomString = log.pjpCode; executeCalculationsPipeline(); closeHistorySystemModalWindow(); saveCurrentBillStateToLocalMemory(); alert(`📄 Invoice #${invId} loaded successfully!`);
         }
     }
 
@@ -756,10 +953,47 @@
         let template = `<table border="1"><tr style="background:#1e40af; color:#fff;"><th colspan="2">PICK LIST</th></tr><tr><td><b>Range:</b></td><td>${fromDate} To ${toDate}</td></tr><tr><td><b>Booker:</b></td><td>${sampleLog.bookerName}</td></tr>${excelRows}<tr><td><b>Total:</b></td><td>${totalCases} Pcs</td></tr></table>`;
         const blob = new Blob([template], { type: "application/vnd.ms-excel" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `LOADOUT_${fromDate}_TO_${toDate}.xls`; a.click();
     }
-    function terminateUserSessionState() { 
-        if(mainCountdownIntervalTimerId) clearInterval(mainCountdownIntervalTimerId);
-        localStorage.removeItem("islam_co_token_secure_2026"); 
-        location.reload(); 
+    function terminateUserSessionState() {
+        // Logout immediately in the UI first, so it still works in embedded/mobile browsers.
+        try {
+            if (mainCountdownIntervalTimerId) {
+                clearInterval(mainCountdownIntervalTimerId);
+                mainCountdownIntervalTimerId = null;
+            }
+            localStorage.removeItem("islam_co_token_secure_2026");
+            authenticatedUserBookerString = "";
+            remainingCountdownSeconds = MAX_INACTIVITY_SECONDS;
+
+            const workspace = document.getElementById("viewPanelWorkspace");
+            const login = document.getElementById("viewPanelLogin");
+            const welcome = document.getElementById("welcomeCelebrationOverlay");
+            const loading = document.getElementById("loginLoadingOverlay");
+            if (workspace) workspace.classList.remove("view-active");
+            if (login) login.classList.add("view-active");
+            if (welcome) welcome.classList.remove("show");
+            if (loading) loading.classList.remove("show");
+
+            const username = document.getElementById("nodeAuthUsername");
+            const password = document.getElementById("nodeAuthPassword");
+            const warning = document.getElementById("loginFeedbackStatusDisplayBox");
+            const error = document.getElementById("lblSecurityMainErrorString");
+            const button = document.getElementById("btnAuthActionTrigger");
+            if (username) username.value = "";
+            if (password) { password.value = ""; password.type = "password"; }
+            if (warning) warning.style.display = "none";
+            if (error) error.textContent = "";
+            if (button) { button.disabled = false; button.textContent = "Login"; }
+
+            // Reload after the login panel is visible to reset the rest of the working session.
+            window.setTimeout(() => {
+                try { window.location.reload(); }
+                catch (reloadError) { console.warn("Page reload unavailable; login screen is already restored.", reloadError); }
+            }, 80);
+        } catch (logoutError) {
+            console.error("Logout UI reset failed.", logoutError);
+            try { localStorage.removeItem("islam_co_token_secure_2026"); } catch (_) {}
+            try { window.location.href = window.location.href; } catch (_) {}
+        }
     }
 </script>
 </body>
